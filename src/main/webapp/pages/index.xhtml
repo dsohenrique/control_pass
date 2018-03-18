@@ -1,16 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
+<?xml version="1.0" encoding="windows-1252"?>
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Control Pass</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>HELLO WORLD!!!</div>
-    </body>
+    </h:head>
+    <h:body>
+        <h:form>
+            <img src="D:\Repositorio\Logo ControlPass.png" />   
+            <h1>Control Pass V1.0</h1>
+            <p:fieldset>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    
+                    <p:outputLabel>TIPO DE USUARIO: </p:outputLabel>
+                    <p:selectOneMenu id="TxtTipoDePerfil" value="#{loginMB.tipoUsuarioENUM}">
+                        <f:selectItems value="#{loginMB.tipoUsuarioENUM}" />
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel>UNIDADE: </p:outputLabel>
+                    <p:selectOneMenu id="TxtUnidadeEscola" value="#{loginMB.unidadeEscolaENUM}">
+                        <f:selectItems value="#{loginMB.unidadeEscolaENUM}" />
+                    </p:selectOneMenu>
+                    
+                    <p:outputLabel>LOGIN: </p:outputLabel>
+                    <p:inputText id="txtLogin"/>
+
+                    <p:outputLabel>SENHA: </p:outputLabel>
+                    <h:inputSecret id="txtSenha"/>
+                </h:panelGrid> 
+                <h:panelGrid columns="4">
+                    <p:commandButton value="Entrar" action="#{loginMB.logar()}"/>
+                    <p:commandButton value="Cadastrar" action="#"/>
+                    <p:commandButton value="Recuperar"/>
+                </h:panelGrid>
+            </p:fieldset>    
+        </h:form>
+    </h:body>
 </html>
+
+
