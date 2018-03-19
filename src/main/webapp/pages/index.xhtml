@@ -16,25 +16,21 @@
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                     
                     <p:outputLabel>TIPO DE USUARIO: </p:outputLabel>
-                    <p:selectOneMenu id="TxtTipoDePerfil" value="#{loginMB.tipoUsuarioENUM}">
-                        <f:selectItems value="#{loginMB.tipoUsuarioENUM}" />
+                    <p:selectOneMenu id="TxtTipoDePerfil" value="#{loginMB.usuario.tipoUsuario}">
+                       
+                        <f:selectItems value="#{loginMB.tipoUsuarioENUM}" var="e" itemLabel="#{e}" itemValue="#{e}" />
                     </p:selectOneMenu>
-                    
-                    <p:outputLabel>UNIDADE: </p:outputLabel>
-                    <p:selectOneMenu id="TxtUnidadeEscola" value="#{loginMB.unidadeEscolaENUM}">
-                        <f:selectItems value="#{loginMB.unidadeEscolaENUM}" />
-                    </p:selectOneMenu>
-                    
+                                      
                     <p:outputLabel>LOGIN: </p:outputLabel>
-                    <p:inputText id="txtLogin"/>
+                    <p:inputText id="txtLogin" value="#{loginMB.login}"/>
 
                     <p:outputLabel>SENHA: </p:outputLabel>
-                    <h:inputSecret id="txtSenha"/>
+                    <h:inputSecret id="txtSenha" value="#{loginMB.senha}"/>
                 </h:panelGrid> 
                 <h:panelGrid columns="4">
                     <p:commandButton value="Entrar" action="#{loginMB.logar()}"/>
                     <p:commandButton value="Cadastrar" action="#"/>
-                    <p:commandButton value="Recuperar"/>
+                    <p:commandButton value="recuperar" action="recuperar" ajax="false" />
                 </h:panelGrid>
             </p:fieldset>    
         </h:form>

@@ -1,25 +1,20 @@
-
 package br.com.controlpass.enums;
 
 public enum TipoUsuarioENUM {
-    ALUNO,
-    PROFESSOR,
-    ADMNISTRADOR,
-    RESPONSAVEL;
-   
-    public static TipoUsuarioENUM getALUNO() {    
-        return ALUNO;
+    ALUNO("Aluno"),
+    PROFESSOR("Professor"),
+    ADMINISTRADOR("Administrador"),
+    RESPONSAVEL("Responsavel");
+
+    private String tipoUsuario;
+
+    private TipoUsuarioENUM(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public static TipoUsuarioENUM getPROFESSOR() {
-        return PROFESSOR;
+    @Override
+    public String toString() {
+        return tipoUsuario;
     }
 
-    public static TipoUsuarioENUM getADMNISTRADOR() {
-        return ADMNISTRADOR;
-    }
-
-    public static TipoUsuarioENUM getRESPONSAVEL() {
-        return RESPONSAVEL;
-    }
 }
