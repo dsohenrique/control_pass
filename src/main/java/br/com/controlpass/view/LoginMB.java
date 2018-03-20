@@ -20,8 +20,8 @@ public class LoginMB {
     private String login ;
     @Column(name = "senha")
     private String senha ;
-    @Column(name = "tipo_usuario")
     private Usuario usuario;
+    @Column(name = "tipo_usuario")
     private TipoUsuarioENUM[] tipoUsuarioENUM;
     
     @PostConstruct
@@ -63,10 +63,11 @@ public class LoginMB {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
         public String logar() {
         if (login.equals("TEST")
                 && senha.equals("123")
-                && tipoUsuarioENUM.equals("ALUNO")) {
+                 ) {
             return "bemVindo";
         }
         return null;
