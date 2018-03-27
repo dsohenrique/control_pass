@@ -68,7 +68,7 @@ public class LoginMB {
         if (login.equals("TEST")
                 && senha.equals("123")
                  ) {
-            return "bemVindo";
+            return "Index";
         }
         return null;
     }

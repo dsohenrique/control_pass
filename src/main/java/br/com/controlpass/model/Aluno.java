@@ -1,5 +1,6 @@
 package br.com.controlpass.model;
 
+import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,9 +14,11 @@ import lombok.Setter;
 @Setter
 public class Aluno {
 
-	private int id;
+	private Long id;
 	private String nome;
 	private String cpf;
+        private String email;
+        private Date nascimento; /* mudar de String para Date*/
 	private String ano;
 	private String curso;
 	//private CursoEnum curso;
@@ -23,13 +26,31 @@ public class Aluno {
 	//private ModuloEnum curso;
 	private String disciplina;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+   
 
     public String getNome() {
         return nome;

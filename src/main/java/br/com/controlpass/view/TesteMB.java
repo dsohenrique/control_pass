@@ -1,3 +1,6 @@
+package br.com.controlpass.view;
+
+import br.com.controlpass.model.Aluno;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
