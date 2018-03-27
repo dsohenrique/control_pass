@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Control Pass</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+         <h:form style="text-align:center">
+            <img src="D:\Repositorio\Logo ControlPass.png" />   
+            <h1>Control Pass V1.0</h1><br/>
+            <h2>Bem-Vindo(a)</h2><br/>
+            <p:outputLabel value=" Insira seus dados de login!!!"/><br/>
+             <p:fieldset style="width:500px; margin-left: 30%">
+                <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10">
+
+                    <p:outputLabel>TIPO DE USUARIO: </p:outputLabel>
+                    <p:selectOneMenu id="TxtTipoDePerfil" value="#{loginMB.usuario.tipoUsuario}">
+                        <f:selectItem itemLabel="Selecione..." itemValue="" />
+                        <f:selectItems value="#{loginMB.tipoUsuarioENUM}" var="e" itemLabel="#{e}" itemValue="#{e}" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel>LOGIN: </p:outputLabel>
+                    <p:inputText id="txtLogin" value="#{loginMB.login}"/>
+
+                    <p:outputLabel>SENHA: </p:outputLabel>
+                    <h:inputSecret id="txtSenha" value="#{loginMB.senha}"/>
+                </h:panelGrid> 
+                 <h:panelGrid columns="4" style="margin-left: 100px">
+                    <p:commandButton value="Entrar" action="#{loginMB.logar()}"/>
+                    <p:commandButton value="Cadastrar" action="#"/>
+                    <p:commandButton value="recuperar" action="recuperar" ajax="false" />
+                </h:panelGrid>
+            </p:fieldset>    
+        </h:form>
+    </h:body>
+</html>
+
+

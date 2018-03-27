@@ -11,6 +11,7 @@ import br.com.controlpass.model.Aluno;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @ManagedBean
 @Getter
 @Setter
@@ -24,7 +25,7 @@ public class AlunoMB {
 			 return "pagina?faces-redirect=true";
 		}
 		else{
-			return "CPF inválido";
+			return "CPF invï¿½lido";
 		}
 	}
 	
@@ -46,26 +47,26 @@ public class AlunoMB {
 		alu1.setCpf("12345");
 		alu1.setAno("2018");
 		/*alu1.setCurso(CursoEnum.Selecione);
-		alu1.setCurso(CursoEnum.INFORMÁTICA);
-		alu1.setCurso(CursoEnum.ADMINISTRAÇÃO);
-		alu1.setCurso(CursoEnum.ELETRÔNICA);
+		alu1.setCurso(CursoEnum.INFORMï¿½TICA);
+		alu1.setCurso(CursoEnum.ADMINISTRAï¿½ï¿½O);
+		alu1.setCurso(CursoEnum.ELETRï¿½NICA);
 		alu1.setCurso(CursoEnum.REDES);
-		alu1.setCurso(CursoEnum.MECATRÔNICA);
+		alu1.setCurso(CursoEnum.MECATRï¿½NICA);
 		alu1.setModulo(ModuloEnum.Selecione);
 		alu1.setModulo(ModuloEnum.PRIMEIRO);
 		alu1.setModulo(ModuloEnum.SEGUNDO);
 		alu1.setModulo(ModuloEnum.TERCEIRO);*/
 		alu1.setCurso("Selecione");
-		alu1.setCurso("INFORMÁTICA");
-		alu1.setCurso("ADMINISTRAÇÃO");
-		alu1.setCurso("ELETRÔNICA");
+		alu1.setCurso("INFORMATICA");
+		alu1.setCurso("ADMINISTRACAO");
+		alu1.setCurso("ELETRONICA");
 		alu1.setCurso("REDES");
-		alu1.setCurso("MECATRÔNICA");
+		alu1.setCurso("MECATRONICA");
 		alu1.setModulo("Selecione");
 		alu1.setModulo("PRIMEIRO");
 		alu1.setModulo("SEGUNDO");
 		alu1.setModulo("TERCEIRO");
-		alu1.setDisciplina("TÉCNICAS PROGRAMAÇÃO INTERNET II");
+		alu1.setDisciplina("Tï¿½CNICAS PROGRAMAï¿½ï¿½O INTERNET II");
 
 		/*
 		 * Presenca alu2 = new Presenca(); alu2.setNome("Lucas");

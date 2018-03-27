@@ -27,6 +27,7 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        
 
         <!-- JSF -->
         <dependency>
@@ -54,9 +55,18 @@
             <artifactId>primefaces</artifactId>
             <version>6.1</version>
         </dependency>
+        <!--Lombok-->
+        <dependency> 
+            <groupId>org.projectlombok</groupId> 
+            <artifactId>lombok</artifactId> 
+            <version>1.16.16</version> 
+            <scope>provided</scope> 
+        </dependency> 
 
     </dependencies>
-
+     
+        
+  
     <repositories>
         <repository>
             <id>prime-repo</id>
