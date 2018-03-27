@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<p:dialog header="Dados do aluno" widgetVar="dlgVisualizacao"
+		id="dlgVisualizacao" resizable="false">
+
+		<h:panelGrid columns="2">
+			<h:outputText value="Nome:" />
+			<h:outputText value="#{testeMB.nome}"/>
+		</h:panelGrid>
+		<h:panelGrid columns="4">
+			<h:outputText value="Curso:" />
+			<h:selectOneMenu>
+				<f:selectItem itemLabel="Selecione" value="#{testeMB.exibicao.curso}"/>
+				<f:selectItem itemLabel="INFORMÁTICA" value="#{testeMB.exibicao.curso}"/>
+				<f:selectItem itemLabel="ADMINISTRAÇÃO" value="#{testeMB.exibicao.curso}"/>
+				<f:selectItem itemLabel="ELETRÔNICA" value="#{testeMB.exibicao.curso}"/>
+				<f:selectItem itemLabel="REDES" value="#{testeMB.exibicao.curso}"/>
+				<f:selectItem itemLabel="MECATRÔNICA" value="#{testeMB.exibicao.curso}"/>
+			</h:selectOneMenu>
+			<h:outputText value="Ano:" />
+			<h:selectOneMenu>
+				<f:selectItem itemLabel="2018" value="#{testeMB.exibicao.ano}" />
+			</h:selectOneMenu>
+			<h:outputText value="Módulo:" />
+			<h:selectOneMenu>
+				<f:selectItem itemLabel="Selecione" value="#{testeMB.exibicao.modulo}" />
+				<f:selectItem itemLabel="MÓDULO I" value="#{testeMB.exibicao.modulo}" />
+				<f:selectItem itemLabel="MÓDULO II" value="#{testeMB.exibicao.modulo}" />
+				<f:selectItem itemLabel="MÓDULO III" value="#{testeMB.exibicao.modulo}" />
+			</h:selectOneMenu>
+
+			<h:outputText value="Disciplina:" />
+			<h:selectOneMenu>
+				<f:selectItem itemLabel="TPI II" value="#{testeMB.exibicao.disciplina}" />
+			</h:selectOneMenu>
+
+			<p:button value="Consultar" outcome="PresencaAluno"/>
+		</h:panelGrid>
+
+
+
+	</p:dialog>
+
+</ui:composition>
