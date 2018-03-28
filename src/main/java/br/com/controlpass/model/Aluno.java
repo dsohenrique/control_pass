@@ -1,30 +1,58 @@
 package br.com.controlpass.model;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
-
 //import br.com.controlpass.enums.CursoEnum;
 //import br.com.controlpass.enums.ModuloEnum;
-
-
 @Getter
 @Setter
+@Entity
+@Table(name = "TBL_ALUNO")
 public class Aluno {
 
-	private Long id;
-	private String nome;
-	private String cpf;
-        private String email;
-        private Date nascimento; /* mudar de String para Date*/
-	private String ano;
-	private String curso;
-	//private CursoEnum curso;
-	private String modulo;
-	//private ModuloEnum curso;
-	private String disciplina;
+    @Id
+    @GeneratedValue
+    @Column(name = "ID_ALUNO")
+    private Long id;
+    private String aluno;
+    @Column(name = "NM_ALUNO")
+    private String nome;
+    @Column(name = "TX_CPF")
+    private Long cpf;
+    @Column(name = "TX_FONE")
+    private String telefone;
+    @Column(name = "TX_EMAIL")
+    private String email;
+    private Date nascimento;
+    /* mudar de String para Date*/
+    private String ano;
+    private String curso;
+    //private CursoEnum curso;
+    private String modulo;
+    //private ModuloEnum curso;
+    private String disciplina;
+    @Column(name = "DT_CRIACAO")
+    private Date dataCriacao;
+    @OneToOne(mappedBy = "aluno", cascade = CascadeType.ALL)
+    private br.com.controlpass.model.Endereco endereco = new br.com.controlpass.model.Endereco();
+
+    @PrePersist
+    private void preencherDataCriacao() {
+        if (dataCriacao == null) {
+            dataCriacao = new Date();
+        }
+    }
+    
 
     public Long getId() {
         return id;
@@ -50,8 +78,6 @@ public class Aluno {
         this.nascimento = nascimento;
     }
 
-   
-
     public String getNome() {
         return nome;
     }
@@ -60,13 +86,7 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+    
 
     public String getAno() {
         return ano;
@@ -99,6 +119,13 @@ public class Aluno {
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
     }
-	
-	
+
+    public Object getEndereco() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCpf(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
