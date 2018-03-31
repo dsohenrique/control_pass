@@ -45,7 +45,9 @@ public class AlunoMB {
     public void doSave() {
         try {
             Thread.sleep(8000);
-            edit.getEndereco().setAluno(edit);
+            edit.getEndereco();
+           
+                   
 
             EntityManagerFactory emf = Persistence
                     .createEntityManagerFactory("ETEC");
