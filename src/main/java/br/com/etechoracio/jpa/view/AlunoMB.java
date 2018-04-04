@@ -1,5 +1,5 @@
 package br.com.etechoracio.jpa.view;
-
+import br.com.controlpass.model.*;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,11 +13,9 @@ import javax.persistence.TypedQuery;
 
 import lombok.Getter;
 import lombok.Setter;
-import br.com.etechoracio.jpa.model.Aluno;
 import java.util.ArrayList;
 
-@Getter
-@Setter
+
 @ManagedBean
 public class AlunoMB {
 
@@ -26,6 +24,8 @@ public class AlunoMB {
 
 	@PostConstruct
 	public void postConstruct() {
+		findAll();
+		exibicao.setNome("Lucas");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ETEC");
 		EntityManager em = emf.createEntityManager();
 		String sql = "SELECT a FROM Aluno a";
@@ -33,10 +33,57 @@ public class AlunoMB {
 		setRegistros(query.getResultList());
 	}
 
+	private void findAll() {
+		Aluno alu1 = new Aluno();
+		//alu1.setNome("Lucas");
+		alu1.setCpf(12345);
+		alu1.setAno("2018");
+		/*alu1.setCurso(CursoEnum.Selecione);
+		alu1.setCurso(CursoEnum.INFORM�TICA);
+		alu1.setCurso(CursoEnum.ADMINISTRA��O);
+		alu1.setCurso(CursoEnum.ELETR�NICA);
+		alu1.setCurso(CursoEnum.REDES);
+		alu1.setCurso(CursoEnum.MECATR�NICA);
+		alu1.setModulo(ModuloEnum.Selecione);
+		alu1.setModulo(ModuloEnum.PRIMEIRO);
+		alu1.setModulo(ModuloEnum.SEGUNDO);
+		alu1.setModulo(ModuloEnum.TERCEIRO);*/
+		alu1.setCurso("Selecione");
+		alu1.setCurso("INFORM�TICA");
+		alu1.setCurso("ADMINISTRA��O");
+		alu1.setCurso("ELETR�NICA");
+		alu1.setCurso("REDES");
+		alu1.setCurso("MECATR�NICA");
+		alu1.setModulo("Selecione");
+		alu1.setModulo("PRIMEIRO");
+		alu1.setModulo("SEGUNDO");
+		alu1.setModulo("TERCEIRO");
+		alu1.setDisciplina("T�CNICAS PROGRAMA��O INTERNET II");                
+               /* Postconstruct PRESENÇA*/
+                Presenca presenca = new Presenca();
+		presenca.setNome("Lucas");
+		presenca.setData("05/03/2018");
+		presenca.setEntrada("19:00");
+		presenca.setSaida("20:50");
+		presenca.setSituacao("Presente");
+		presenca.setTotalPresenca("68%");
+		
+		presencas.add(presenca);
+
+		/*
+		 * Presenca alu2 = new Presenca(); alu2.setNome("Lucas");
+		 * alu2.setData("05/03/2018"); alu2.setEntrada("19:00");
+		 * alu2.setSaida("20:50"); alu2.setSituacao("Presente");
+		 */
+
+		alunos.add(alu1);
+		// presencas.add(alu2);
+	}
+
 	public void doSave() {
 		try {
 			Thread.sleep(8000);
-			edit.getEndereco().setAluno(edit);
+			//edit.getEndereco().setAluno(edit);
 
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("ETEC");
 			EntityManager em = emf.createEntityManager();
@@ -80,58 +127,7 @@ public class AlunoMB {
         private List<Presenca> presencas = new ArrayList<Presenca>();
 	private Presenca exibicao1 = new Presenca();
         
-	@PostConstruct
-	public void postConstruct() {
-		findAll();
-		exibicao.setNome("Lucas");
-	}
-
-	private void findAll() {
-		Aluno alu1 = new Aluno();
-		//alu1.setNome("Lucas");
-		alu1.setCpf("12345");
-		alu1.setAno("2018");
-		/*alu1.setCurso(CursoEnum.Selecione);
-		alu1.setCurso(CursoEnum.INFORM�TICA);
-		alu1.setCurso(CursoEnum.ADMINISTRA��O);
-		alu1.setCurso(CursoEnum.ELETR�NICA);
-		alu1.setCurso(CursoEnum.REDES);
-		alu1.setCurso(CursoEnum.MECATR�NICA);
-		alu1.setModulo(ModuloEnum.Selecione);
-		alu1.setModulo(ModuloEnum.PRIMEIRO);
-		alu1.setModulo(ModuloEnum.SEGUNDO);
-		alu1.setModulo(ModuloEnum.TERCEIRO);*/
-		alu1.setCurso("Selecione");
-		alu1.setCurso("INFORM�TICA");
-		alu1.setCurso("ADMINISTRA��O");
-		alu1.setCurso("ELETR�NICA");
-		alu1.setCurso("REDES");
-		alu1.setCurso("MECATR�NICA");
-		alu1.setModulo("Selecione");
-		alu1.setModulo("PRIMEIRO");
-		alu1.setModulo("SEGUNDO");
-		alu1.setModulo("TERCEIRO");
-		alu1.setDisciplina("T�CNICAS PROGRAMA��O INTERNET II");                
-               /* Postconstruct PRESENÇA*/
-                Presenca presenca = new Presenca();
-		presenca.setNome("Lucas");
-		presenca.setData("05/03/2018");
-		presenca.setEntrada("19:00");
-		presenca.setSaida("20:50");
-		presenca.setSituacao("Presente");
-		presenca.setTotalPresenca("68%");
-		
-		presencas.add(presenca);
-
-		/*
-		 * Presenca alu2 = new Presenca(); alu2.setNome("Lucas");
-		 * alu2.setData("05/03/2018"); alu2.setEntrada("19:00");
-		 * alu2.setSaida("20:50"); alu2.setSituacao("Presente");
-		 */
-
-		alunos.add(alu1);
-		// presencas.add(alu2);
-	}
+	
 
 	public void doView(Aluno alu) {
 		// Busca no banco de dados pelo ID

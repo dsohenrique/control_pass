@@ -22,6 +22,22 @@ import lombok.Setter;
 @Setter
 public class Aluno2MB {
 	
+	public List<Presenca> getPresencas() {
+		return presencas;
+	}
+
+	public void setPresencas(List<Presenca> presencas) {
+		this.presencas = presencas;
+	}
+
+	public Presenca getExibicao1() {
+		return exibicao1;
+	}
+
+	public void setExibicao1(Presenca exibicao1) {
+		this.exibicao1 = exibicao1;
+	}
+
 	private List<Presenca> presencas = new ArrayList<Presenca>();
 	private Presenca exibicao1 = new Presenca();
 	
