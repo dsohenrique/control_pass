@@ -75,7 +75,7 @@ public class AlunoMB {
     private void findAll() {
         Aluno alu1 = new Aluno();
         //alu1.setNome("Lucas");
-        alu1.setCpf("12345");
+        alu1.setCpf(12345);
         alu1.setAno("2018");
         /*alu1.setCurso(CursoEnum.Selecione);
 		alu1.setCurso(CursoEnum.INFORM�TICA);
