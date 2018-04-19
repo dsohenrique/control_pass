@@ -11,15 +11,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import lombok.Getter;
-import lombok.Setter;
 
 @ManagedBean
-@Getter
-@Setter
+
 public class AlunoMB {
 
-    private String cpf = "";
+    private String cpf ;
 
     public String consultar() {
         if (cpf.equals("12345")) {
@@ -116,4 +113,12 @@ public class AlunoMB {
     // public void verificarCpf(Aluno cpf){
     // }
     // }
+    
+    public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 }
