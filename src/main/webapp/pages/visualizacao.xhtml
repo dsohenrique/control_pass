@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
-	<p:dialog header="Dados do aluno" widgetVar="dlgVisualizacao"
-		id="dlgVisualizacao">
+    <p:dialog header="Dados do aluno" widgetVar="dlgVisualizacao"
+              id="dlgVisualizacao">
 
-		<h:graphicImage library="images" name="face.png" width="100" height="100" />
+        <h:graphicImage library="images" name="face.png" width="100" height="100" />
 
-		<h:panelGrid columns="2">
-	
-			<h:outputText value="Nome:" />
-			<h:outputText value="#{testeMB.exibicao.nome}" />
+        <h:panelGrid columns="2">
 
-			<h:outputText value="E-Mail:" />
-			<h:outputText value="#{testeMB.exibicao.email}" />
+            <h:outputText value="Nome:" />
+            <h:outputText value="#{testeMB.exibicao.nome}" />
 
-			<h:outputText value="Nascimento:" />
-			<h:outputText value="#{testeMB.exibicao.nascimento}" />
+            <h:outputText value="E-Mail:" />
+            <h:outputText value="#{testeMB.exibicao.email}" />
 
-
-		</h:panelGrid>
+            <h:outputText value="Nascimento:" />
+            <h:outputText value="#{testeMB.exibicao.nascimento}" />
 
 
+        </h:panelGrid>
 
-	</p:dialog>
+
+
+    </p:dialog>
 
 
 
