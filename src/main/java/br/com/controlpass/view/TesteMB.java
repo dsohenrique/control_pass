@@ -1,71 +1,59 @@
 package br.com.controlpass.view;
 
-import br.com.controlpass.model.Aluno;
+import br.com.controlpass.model.Usuario;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 @ManagedBean
 public class TesteMB {
 
-	
-	private List<Aluno> alunos = new ArrayList<Aluno>();
-	private Aluno exibicao = new Aluno();
+    private List<Usuario> usuarios = new ArrayList<Usuario>();
+    private Usuario exibicao = new Usuario();
 
-	public List<Aluno> getAlunos() {
-		return alunos;
-	}
+    public List<Usuario> getusuarios() {
+        return usuarios;
+    }
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
-	}
+    public void setusuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
 
-	public Aluno getExibicao() {
-		return exibicao;
-	}
+    public Usuario getExibicao() {
+        return exibicao;
+    }
 
-	public void setExibicao(Aluno exibicao) {
-		this.exibicao = exibicao;
-	}
+    public void setExibicao(Usuario exibicao) {
+        this.exibicao = exibicao;
+    }
 
-	@PostConstruct
-	public void postConstruct() {
-		findAll();
-	}
-	
-	private void findAll(){
-		Aluno alu2 = new Aluno();
-		alu2.setId(2L);
-		alu2.setEmail("joelshemale@gmail.com");
-		alu2.setNome("Joel Alberto");
-		alu2.setNascimento(new Date());
-		/*alu2.setNascimento("16/08/1999"); - Mudar 'Nascimento' para String na Classe Aluno*/
-		
-		Aluno alu1 = new Aluno();
-		alu1.setId(1L);
-		alu1.setEmail("gustavosilvaborges1608@hotmail.com");
-		alu1.setNome("Gustavo");
-		alu1.setNascimento(new Date());
-		
-		alunos.add(alu1);
-		alunos.add(alu2);
-		
-		/*
+    @PostConstruct
+    public void postConstruct() {
+        findAll();
+    }
+
+    private void findAll() {
+        Usuario usuario = new Usuario();
+        usuario.setEmail("joelshemale@gmail.com");
+        usuario.setNome("Joel Alberto");
+        
+        Usuario usuario2 = new Usuario();
+        usuario2.setEmail("gustavosilvaborges1608@hotmail.com");
+        usuario2.setNome("Gustavo");
+
+        usuarios.add(usuario);
+        usuarios.add(usuario);
+
+        /*
 		 * 
-		 */
-	}
-	
-	public void doView(Aluno alu) {
-		//Busca no banco de dados pelo ID
-		exibicao = alu;
-	}
-	
+         */
+    }
+
+    public void doView(Usuario usuario) {
+        //Busca no banco de dados pelo ID
+        exibicao = usuario;
+    }
+
 }

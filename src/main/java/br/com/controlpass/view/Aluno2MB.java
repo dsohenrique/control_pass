@@ -49,7 +49,7 @@ public class Aluno2MB {
 	public void findAll(){
 		
 		Presenca presenca = new Presenca();
-		presenca.setNome("Lucas");
+		/*presenca.setNome("Lucas");*/
 		presenca.setData("05/03/2018");
 		presenca.setEntrada("19:00");
 		presenca.setSaida("20:50");

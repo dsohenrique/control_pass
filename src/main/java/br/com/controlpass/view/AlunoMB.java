@@ -67,44 +67,6 @@ public class AlunoMB {
     // private Presenca exibicao1 = new Presenca();
 
    
-    
-
-    private void findAll() {
-        Aluno alu1 = new Aluno();
-        //alu1.setNome("Lucas");
-        alu1.setCpf(12345);
-        alu1.setAno("2018");
-        /*alu1.setCurso(CursoEnum.Selecione);
-		alu1.setCurso(CursoEnum.INFORM�TICA);
-		alu1.setCurso(CursoEnum.ADMINISTRA��O);
-		alu1.setCurso(CursoEnum.ELETR�NICA);
-		alu1.setCurso(CursoEnum.REDES);
-		alu1.setCurso(CursoEnum.MECATR�NICA);
-		alu1.setModulo(ModuloEnum.Selecione);
-		alu1.setModulo(ModuloEnum.PRIMEIRO);
-		alu1.setModulo(ModuloEnum.SEGUNDO);
-		alu1.setModulo(ModuloEnum.TERCEIRO);*/
-        alu1.setCurso("Selecione");
-        alu1.setCurso("INFORMATICA");
-        alu1.setCurso("ADMINISTRACAO");
-        alu1.setCurso("ELETRONICA");
-        alu1.setCurso("REDES");
-        alu1.setCurso("MECATRONICA");
-        alu1.setModulo("Selecione");
-        alu1.setModulo("PRIMEIRO");
-        alu1.setModulo("SEGUNDO");
-        alu1.setModulo("TERCEIRO");
-        alu1.setDisciplina("T�CNICAS PROGRAMA��O INTERNET II");
-
-        /*
-		 * Presenca alu2 = new Presenca(); alu2.setNome("Lucas");
-		 * alu2.setData("05/03/2018"); alu2.setEntrada("19:00");
-		 * alu2.setSaida("20:50"); alu2.setSituacao("Presente");
-         */
-        alunos.add(alu1);
-        // presencas.add(alu2);
-    }
-
     public void doView(Aluno alu) {
         // Busca no banco de dados pelo ID
         exibicao = alu;
@@ -114,11 +76,4 @@ public class AlunoMB {
     // }
     // }
     
-    public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-}
+  }
