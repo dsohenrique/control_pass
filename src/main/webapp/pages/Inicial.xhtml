@@ -16,15 +16,17 @@
             <p:fieldset style="width:500px; margin-left: 35%">
                 <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10">
                     <p:outputLabel>LOGIN: </p:outputLabel>
-                    <p:inputText id="txtLogin" value="#{loginMB.login}"/>
+                    <p:inputText id="txtLogin" value=" "/>
 
                     <p:outputLabel>SENHA: </p:outputLabel>
-                    <h:inputSecret id="txtSenha" value="#{loginMB.senha}"/>
+                    <h:inputSecret id="txtSenha" value=" "/>
                 </h:panelGrid> 
                 <h:panelGrid columns="4" style="margin-left: 100px">
                     <p:commandButton value="Entrar" action="layout" ajax="false"/>
                     <p:commandButton value="Cadastrar" action="save" ajax="false"/>
                     <p:commandButton value="recuperar" action="recuperar" ajax="false" />
+                    <a href="conexao.jsp">Conect</a>
+                                     
                 </h:panelGrid>
             </p:fieldset>    
         </h:form>
