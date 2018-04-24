@@ -48,11 +48,11 @@
             <version>2.2.12</version>
         </dependency>
         
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.2.15.Final</version>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.16.Final</version>
         </dependency>
 
 
