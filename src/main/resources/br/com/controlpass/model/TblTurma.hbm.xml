@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/04/2018 21:53:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.controlpass.model.TblTurma" table="tbl_turma" catalog="control_pass" optimistic-lock="version">
+        <id name="idTurma" type="int">
+            <column name="id_turma" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblCurso" class="br.com.controlpass.model.TblCurso" fetch="select">
+            <column name="id_curso" not-null="true" />
+        </many-to-one>
+        <property name="nmTurma" type="string">
+            <column name="nm_turma" length="20" not-null="true" />
+        </property>
+        <set name="tblChamadas" table="tbl_chamada" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_turma_fk" not-null="true" />
+            </key>
+            <one-to-many class="br.com.controlpass.model.TblChamada" />
+        </set>
+    </class>
+</hibernate-mapping>

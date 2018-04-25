@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/04/2018 21:53:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.controlpass.model.TblUsuario" table="tbl_usuario" catalog="control_pass" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
+            <generator class="assigned" />
+        </id>
+        <property name="cpf" type="int">
+            <column name="cpf" not-null="true" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="100" not-null="true" />
+        </property>
+        <property name="tipoUsuario" type="int">
+            <column name="tipo_usuario" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="150" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="50" not-null="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="244" not-null="true" />
+        </property>
+        <set name="tblAlunos" table="tbl_aluno" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario_fk" not-null="true" />
+            </key>
+            <one-to-many class="br.com.controlpass.model.TblAluno" />
+        </set>
+    </class>
+</hibernate-mapping>
