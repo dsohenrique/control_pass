@@ -75,7 +75,7 @@ ALTER TABLE tbl_chamada ADD CONSTRAINT chamada_pk  PRIMARY KEY (id_chamada);
 ALTER TABLE		tbl_chamada ADD CONSTRAINT id_curso_chamada_fk			FOREIGN KEY (id_curso_fk)			REFERENCES tbl_curso(id_curso);
 /*go*/	
 ALTER TABLE		tbl_chamada ADD CONSTRAINT id_turma_chamada_fk			FOREIGN KEY ( id_turma_fk)			REFERENCES tbl_turma(id_turma);
-/*/*go*/
+/*go*/
 /*ALTER TABLE		tbl_chamada ADD CONSTRAINT id_professor_chamada_fk		FOREIGN KEY (id_professor_fk)		REFERENCES tbl_professor(id_professor);*/
 /*go*/
 ALTER TABLE		tbl_chamada ADD CONSTRAINT id_aluno_chamada_fk			FOREIGN KEY (id_aluno_fk)			REFERENCES tbl_aluno(id_aluno);
@@ -92,8 +92,9 @@ SELECT*FROM tbl_materia;
 /*go*/
 SELECT*FROM tbl_aluno;
 /*go*/
-INSERT INTO tbl_usuario (id_usuario,cpf, nome, tipo_usuario, email, status, login, senha)
-VALUES 					(1,1234, 'masterPadrao', 1, 'teste', 1, 'admin',123456 );
+INSERT INTO tbl_usuario (id_usuario, nome, tipo_usuario, email, status, login, senha)
+VALUES 					(1,1234, 'masterPadrao', 1, 'teste', 1, 'admin', 123456 
+);
 /*go*/
 SELECT*FROM tbl_usuario;
 
