@@ -8,11 +8,19 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Aluno</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+            <title>Aluno</title>
     </h:head>
     <h:body>    
 
         <style>
+            body{
+                background-color: #ff6699;
+                font-family: Lucida Calligraphy;
+            }
+            h1{
+                text-align: center;
+            }
             .coluna1 {
                 text-align: right !important;
             }
@@ -35,13 +43,13 @@
                 font-weight: bold;
             }
         </style>
-        <p:outputLabel value="ControlPass v1.0"/>
+        <h1>ControlPass V1.0</h1>        
         <p:fieldset>
             <p:growl id="msgs" showDetail="false" life="7000" sticky="false" />
 
             <h:form id="form">
 
-                <h:panelGrid columns="2" columnClasses="coluna1, coluna2"
+                <h:panelGrid columns="4" columnClasses="coluna1, coluna2"
                              cellpadding="2" cellspacing="2" width="100%">
 
                     <h:outputText value="CPF:" />
