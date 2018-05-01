@@ -2,11 +2,17 @@ package br.com.controlpass.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
 
+@Entity
+@Table(name="tbl_aluno")
 public class Aluno  implements java.io.Serializable {
 
-
+     @Id
+     @GeneratedValue
      private int idAluno;
+     @column
      private Usuario usuario;
      private int codigoBiometria;
      private Set chamadas = new HashSet(0);
@@ -18,7 +24,7 @@ public class Aluno  implements java.io.Serializable {
         this.usuario = usuario;
         this.codigoBiometria = codigoBiometria;
     }
-    public Aluno(int idAluno, Usuario usuario, int codigoBiometria, Set tblChamadas) {
+    public Aluno(int idAluno, Usuario usuario, int codigoBiometria, Set chamadas) {
        this.idAluno = idAluno;
        this.usuario = usuario;
        this.codigoBiometria = codigoBiometria;
