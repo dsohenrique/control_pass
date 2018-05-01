@@ -2,6 +2,7 @@ package br.com.controlpass.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="tbl_aluno")
 public class Aluno implements java.io.Serializable{
     @Id
+    @GeneratedValue
     @Column(name = "id_aluno")
      private int idAluno;
     @Column(name = "codigo_biometria")
@@ -30,6 +32,11 @@ public class Aluno implements java.io.Serializable{
     public void setCodigoBiometria(int codigoBiometria) {
         this.codigoBiometria = codigoBiometria;
     }
+
+    public Aluno(int idAluno) {
+        this.idAluno = idAluno;
+    }
+    
     
 }
 
