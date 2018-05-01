@@ -1,24 +1,23 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 24/04/2018 21:53:31 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="br.com.controlpass.model.TblAluno" table="tbl_aluno" catalog="control_pass" optimistic-lock="version">
-        <id name="idAluno" type="int">
-            <column name="id_aluno" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="tblUsuario" class="br.com.controlpass.model.TblUsuario" fetch="select">
-            <column name="id_usuario_fk" not-null="true" />
-        </many-to-one>
-        <property name="codigoBiometria" type="int">
-            <column name="codigo_biometria" not-null="true" />
-        </property>
-        <set name="tblChamadas" table="tbl_chamada" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_aluno_fk" not-null="true" />
-            </key>
-            <one-to-many class="br.com.controlpass.model.TblChamada" />
-        </set>
-    </class>
+  <class catalog="control_pass" name="br.com.controlpass.model.Aluno" optimistic-lock="version" table="tbl_aluno">
+    <id name="idAluno" type="int">
+      <column name="id_aluno"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="br.com.controlpass.model.Usuario" fetch="select" name="tblUsuario">
+      <column name="id_usuario_fk" not-null="true"/>
+    </many-to-one>
+    <property name="codigoBiometria" type="int">
+      <column name="codigo_biometria" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tblChamadas" table="tbl_chamada">
+      <key>
+        <column name="id_aluno_fk" not-null="true"/>
+      </key>
+      <one-to-many class="br.com.controlpass.model.Chamada"/>
+    </set>
+  </class>
 </hibernate-mapping>

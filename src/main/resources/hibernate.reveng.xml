@@ -41,10 +41,10 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="control_pass"/>
-  <table-filter match-name="tbl_usuario"/>
-  <table-filter match-name="tbl_chamada"/>
-  <table-filter match-name="tbl_curso"/>
-  <table-filter match-name="tbl_materia"/>
-  <table-filter match-name="tbl_turma"/>
-  <table-filter match-name="tbl_aluno"/>
+  <table-filter match-name="Usuario"/>
+  <table-filter match-name="Chamada"/>
+  <table-filter match-name="Curso"/>
+  <table-filter match-name="Materia"/>
+  <table-filter match-name="Turma"/>
+  <table-filter match-name="Aluno"/>
 </hibernate-reverse-engineering>

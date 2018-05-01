@@ -1,12 +1,5 @@
 package br.com.controlpass.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
-
-
-@Getter
-@Setter
 public class Presenca extends Aluno {
 	
 	private String data;
@@ -14,6 +7,10 @@ public class Presenca extends Aluno {
 	private String saida;
 	private String situacao;
 	private String totalPresenca;
+
+    public Presenca(int idAluno, Usuario usuario, int codigoBiometria) {
+        super(idAluno, usuario, codigoBiometria);
+    }
 
     public String getData() {
         return data;

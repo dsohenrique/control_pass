@@ -1,21 +1,20 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 24/04/2018 21:53:31 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="br.com.controlpass.model.TblMateria" table="tbl_materia" catalog="control_pass" optimistic-lock="version">
-        <id name="idMateria" type="int">
-            <column name="id_materia" />
-            <generator class="assigned" />
-        </id>
-        <property name="nmMateria" type="string">
-            <column name="nm_materia" length="20" not-null="true" />
-        </property>
-        <set name="tblChamadas" table="tbl_chamada" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_materia_fk" not-null="true" />
-            </key>
-            <one-to-many class="br.com.controlpass.model.TblChamada" />
-        </set>
-    </class>
+  <class catalog="control_pass" name="br.com.controlpass.model.Materia" optimistic-lock="version" table="tbl_materia">
+    <id name="idMateria" type="int">
+      <column name="id_materia"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nmMateria" type="string">
+      <column length="20" name="nm_materia" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tblChamadas" table="tbl_chamada">
+      <key>
+        <column name="id_materia_fk" not-null="true"/>
+      </key>
+      <one-to-many class="br.com.controlpass.model.Chamada"/>
+    </set>
+  </class>
 </hibernate-mapping>
