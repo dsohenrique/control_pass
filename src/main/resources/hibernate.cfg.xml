@@ -47,12 +47,12 @@ Contributor(s):
     <property name="hibernate.connection.username">root</property>
     <!--<property name="hibernate.connection.pasword">123456</property>-->
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="br/com/controlpass/model/TblTurma.hbm.xml"/>
-    <mapping resource="br/com/controlpass/model/TblMateria.hbm.xml"/>
-    <mapping resource="br/com/controlpass/model/TblCurso.hbm.xml"/>
-    <mapping resource="br/com/controlpass/model/TblAluno.hbm.xml"/>
-    <mapping resource="br/com/controlpass/model/TblUsuario.hbm.xml"/>
-    <mapping resource="br/com/controlpass/model/TblChamada.hbm.xml"/>
+    <mapping resource="br/com/controlpass/model/Turma.hbm.xml"/>
+    <mapping resource="br/com/controlpass/model/Materia.hbm.xml"/>
+    <mapping resource="br/com/controlpass/model/Curso.hbm.xml"/>
+    <mapping resource="br/com/controlpass/model/Aluno.hbm.xml"/>
+    <mapping resource="br/com/controlpass/model/Usuario.hbm.xml"/>
+    <mapping resource="br/com/controlpass/model/Chamada.hbm.xml"/>
     <mapping resource="../java/br/com/controlpass/model/hibernate.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
