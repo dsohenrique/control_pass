@@ -9,7 +9,7 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-            <title>Aluno</title>
+        <title>ControlPass</title>
     </h:head>
     <h:body>    
 
@@ -53,19 +53,19 @@
                              cellpadding="2" cellspacing="2" width="100%">
 
                     <h:outputText value="CPF:" />
-                    <p:inputMask value="#" mask="999.999.999-99"
+                    <p:inputMask value="#{UsuarioMB.usuario}" mask="999.999.999-99"
                                  style="width:140px;" label="CPF" required="true"
-                                 converter="cpfConverter" validator="StellaCPFValidator" />
+                                 converter="cpfConverter" validator="StellaCPFValidator" id="txtCpf" />
 
                     <h:outputText value="Nome:" />
-                    <p:inputText value="#" style="width:400px;"
-                                 maxlength="50" label="Nome" required="true" />
+                    <p:inputText value="#{UsuarioMB.usuario.nome}" style="width:400px;"
+                                 maxlength="50" label="Nome" required="true" id="txtNome" />
 
-                   
+
 
                     <h:outputText value="E-Mail:" />
-                    <p:inputText value="#" style="width:250px;"
-                                 maxlength="50" label="E-Mail" validatorMessage=" e-mail invalido">
+                    <p:inputText value="#{UsuarioMB.usuario.email}" style="width:250px;"
+                                 maxlength="50" label="E-Mail" validatorMessage=" e-mail invalido" id="txtEmail">
                         <f:validateRegex
                             pattern="[\w\.-]*[a-zA-Z0-9_]
                             @[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]
@@ -73,7 +73,7 @@
 
                     </p:inputText>
 
-                    
+
 
                     <h:outputText value="UF:" />
                     <h:outputText value="SP" styleClass="negrito" />
@@ -84,16 +84,17 @@
                     </p:selectOneMenu>
 
                     <p:outputLabel value="Login" />
-                    <p:inputText />
-                    <p:outputLabel value="senha" />
-                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" />
+                    <p:inputText id="txtLogin" value="#{UsuarioMB.usuario.login}"/>
 
-                    <p:outputLabel value=" confirme senha" />
-                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" />
+                    <p:outputLabel value="senha" />
+                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" id="txtSenha" value="#{UsuarioMB.usuario.senha}" />
+
+                    <!--<p:outputLabel value=" confirme senha" />
+                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" />-->
 
                 </h:panelGrid>
                 <h:panelGrid columns="3">
-                    <p:commandButton action="#{cadastroMB.cadastrar()}"
+                    <p:commandButton action="#{UsuarioMB.cadastro()}"
                                      value="Cadastrar" update=":msgs form" />
 
                     <p:commandButton value="Limpar" type="reset" ajax="true"

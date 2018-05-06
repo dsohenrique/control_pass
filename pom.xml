@@ -12,6 +12,7 @@
     </properties>
     
 
+        <!-- Stella-->
     <dependencies>     
         <dependency>
             <groupId>br.com.caelum.stella</groupId>
@@ -39,6 +40,13 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- MySqlConnector-->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
 
         <!-- JSF -->
         <dependency>
