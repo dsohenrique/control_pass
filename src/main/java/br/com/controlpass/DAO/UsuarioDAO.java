@@ -29,6 +29,17 @@ public class UsuarioDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
 
+    public int getCPF(Usuario usuario)
+    {
+    	String sql = "SELECT u.cpf FROM Usuario u WHERE u.cpf=";
+    	/*ResultSet rs;
+    	return 1234;*/
+    	//TODO retornar cpf com hibernate e returnar com o cpf
+    	
+    	
+    	
+    }
+    
     public boolean adiciona(Usuario usuario) {
         Statement st = null;
         ResultSet rs = null;
