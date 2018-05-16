@@ -81,8 +81,7 @@ SELECT*FROM tbl_materia;
 SELECT*FROM tbl_aluno;
 
 INSERT INTO tbl_usuario (id_usuario, cpf, nome, tipo_usuario, email, status, login, senha)
-VALUES 					(1,1234, 'masterPadrao', 1, 'teste', 1, 'admin', SHA2('123456',256)
-);
+VALUES 					(1,1234, 'masterPadrao', 1, 'teste', 1, 'admin', 123456);
 
 SELECT*FROM tbl_usuario;
 
