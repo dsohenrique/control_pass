@@ -37,7 +37,7 @@ public class Chamada {
 
     @ManyToOne
     @JoinColumn(name = "id_curso_fk")
-    private Turma curso = new Turma();
+    private Curso curso = new Curso();
 
     @ManyToOne
     @JoinColumn(name = "id_turma_fk")
@@ -48,7 +48,7 @@ public class Chamada {
 	private Usuario professor = new Usuario();*/
     @ManyToOne
     @JoinColumn(name = "id_aluno_fk")
-    private Turma aluno = new Turma();
+    private Aluno aluno = new Aluno();
 
     /*@ManyToOne
 	@JoinColumn(name="id_usuario")
