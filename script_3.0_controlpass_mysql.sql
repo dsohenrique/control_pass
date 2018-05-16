@@ -9,8 +9,8 @@ USE control_pass;
 /*go*/
 
 CREATE TABLE tbl_usuario(
-	id_usuario		int				NOT NULL,
-	cpf			    int				NOT NULL,
+	id_usuario		int				NOT NULL ,
+	cpf			    varchar(11)		NOT NULL,
     nome 			varchar(100)	NOT NULL,
     tipo_usuario	int				NOT NULL,
     email 			varchar(150)	NOT NULL,
@@ -19,13 +19,14 @@ CREATE TABLE tbl_usuario(
 	senha 	  		varchar(244)	NOT NULL);
 /*go*/
 ALTER TABLE tbl_usuario ADD CONSTRAINT usuario_pk  PRIMARY KEY(id_usuario);
+ALTER TABLE tbl_usuario MODIFY id_usuario int AUTO_INCREMENT;
 /*go*/
 CREATE TABLE tbl_aluno(
-	id_aluno			int NOT NULL,
+	id_aluno			int NOT NULL  ,
 	id_usuario_fk		int	NOT NULL,
     codigo_biometria	int NOT NULL
 );
-ALTER TABLE		tbl_aluno ADD CONSTRAINT aluno_pk				PRIMARY KEY (id_aluno) ;
+ALTER TABLE		tbl_aluno ADD CONSTRAINT aluno_pk				PRIMARY KEY (id_aluno), AUTO_INCREMENT ;
 /*go*/
 ALTER TABLE		tbl_aluno ADD CONSTRAINT id_usuario_aluno_fk	FOREIGN KEY (id_usuario_fk)		REFERENCES tbl_usuario(id_usuario);
 /*go*/
@@ -36,13 +37,13 @@ ALTER TABLE		tbl_aluno ADD CONSTRAINT id_usuario_aluno_fk	FOREIGN KEY (id_usuari
 ALTER TABLE tbl_professor ADD CONSTRAINT professor_pk   PRIMARY KEY (id_professor)*/
 /*go*/
 CREATE TABLE tbl_curso(
-	id_curso	 int		  NOT NULL,
+	id_curso	 int		  NOT NULL  AUTO_INCREMENT,
 	qtd_modulo	 int 		  NOT NULL);
 /*go*/
 ALTER TABLE tbl_curso  ADD CONSTRAINT curso_pk  PRIMARY KEY (id_curso);
 /*go*/
 CREATE TABLE tbl_turma(
-	id_turma	int			NOT NULL,
+	id_turma	int			NOT NULL  AUTO_INCREMENT,
 	nm_turma	varchar(20) NOT NULL,
 	id_curso	int			NOT NULL);
 /*go*/
@@ -51,7 +52,7 @@ ALTER TABLE tbl_turma ADD CONSTRAINT turma_pk  PRIMARY KEY (id_turma);
 ALTER TABLE tbl_turma ADD CONSTRAINT id_curso_turma_fk FOREIGN KEY (id_curso) references tbl_curso(id_curso);
 /*go*/
 CREATE TABLE tbl_materia(
-	id_materia		int			NOT NULL,
+	id_materia		int			NOT NULL  AUTO_INCREMENT,
 	/*id_professor_fk int 		NOT NULL,*/
 	nm_materia		varchar(20) NOT NULL);
 /*go*/
@@ -60,7 +61,7 @@ ALTER TABLE 	tbl_materia ADD PRIMARY KEY (id_materia);
 /*ALTER TABLE		tbl_materia ADD CONSTRAINT id_professor_materia_fk		FOREIGN KEY (id_professor_fk)		REFERENCES tbl_professor(id_professor)*/
 /*go*/
 CREATE TABLE tbl_chamada(
-	id_chamada		int			NOT NULL,
+	id_chamada		int			NOT NULL  AUTO_INCREMENT,
 	id_curso_fk 	int			NOT NULL,
 	id_turma_fk 	int			NOT NULL,
 /*	id_professor_fk int			NOT NULL, */

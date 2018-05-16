@@ -13,12 +13,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-        
-    <!--
-    <error-page>
-        <error-code>404</error-code>
-        <location>/pages/404.xhtml</location>
-    </error-page>
+    
     <error-page>
         <error-code>500</error-code>
         <location>/pages/error.xhtml</location>
@@ -29,8 +24,15 @@
     </error-page>
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/pages/login.xhtml</location>
+        <location>/pages/Inicial.xhtml</location>
     </error-page>
+    
+    <!--
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/404.xhtml</location>
+    </error-page>
+    
     -->
     <session-config>
         <session-timeout>30</session-timeout>

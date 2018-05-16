@@ -16,7 +16,7 @@ public class Usuario implements java.io.Serializable {
     private int idUsuario;
     
     @Column(name = "cpf")
-    private int cpf;
+    private String cpf;
     
     @Column(name = "nome")
     private String nome;
@@ -44,11 +44,11 @@ public class Usuario implements java.io.Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

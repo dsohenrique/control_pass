@@ -12,17 +12,18 @@
         <h:form style="text-align:center">
             <h1>Control Pass V1.0</h1><br/>
             <h2>Bem-Vindo(a)</h2><br/>
+            <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
             <p:outputLabel value=" Insira seus dados de login!!!"/><br/>
             <p:fieldset style="width:500px; margin-left: 35%">
                 <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10">
                     <p:outputLabel>LOGIN: </p:outputLabel>
-                    <p:inputText id="txtLogin" value="#{usuario.login}"/>
+                    <p:inputText id="txtLogin" value="#{loginMB.usuario.login}"/>
 
                     <p:outputLabel>SENHA: </p:outputLabel>
-                    <h:inputSecret id="txtSenha" value="#{usuario.senha}"/>
+                    <h:inputSecret id="txtSenha" value="#{loginMB.usuario.senha}"/>
                 </h:panelGrid> 
                 <h:panelGrid columns="4" style="margin-left: 100px">
-                    <p:commandButton value="Entrar" action="#{LoginMB.autenticar()}"/>
+                    <p:commandButton value="Entrar" action="#{loginMB.autenticar()}" update="@form"/>
                     <p:button value="Cadastrar" outcome="save"/>
                     <p:button value="recuperar" outcome="recuperar"/>                                     
                 </h:panelGrid>

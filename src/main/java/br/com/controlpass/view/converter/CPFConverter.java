@@ -1,4 +1,4 @@
-package br.com.etechoracio.jpa.view.converter;
+package br.com.controlpass.view.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
