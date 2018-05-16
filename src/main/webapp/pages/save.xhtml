@@ -53,7 +53,7 @@
                              cellpadding="2" cellspacing="2" width="100%">
 
                     <h:outputText value="CPF:" />
-                    <p:inputMask value="#{UsuarioMB.usuario}" mask="999.999.999-99"
+                    <p:inputMask value="#{UsuarioMB.usuario.cpf}" mask="999.999.999-99"
                                  style="width:140px;" label="CPF" required="true"
                                  converter="cpfConverter" validator="StellaCPFValidator" id="txtCpf" />
 
