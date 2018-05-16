@@ -26,7 +26,8 @@ CREATE TABLE tbl_aluno(
 	id_usuario_fk		int	NOT NULL,
     codigo_biometria	int NOT NULL
 );
-ALTER TABLE		tbl_aluno ADD CONSTRAINT aluno_pk				PRIMARY KEY (id_aluno), AUTO_INCREMENT ;
+ALTER TABLE		tbl_aluno ADD CONSTRAINT aluno_pk				PRIMARY KEY (id_aluno);
+ALTER TABLE 	tbl_aluno MODIFY id_aluno int AUTO_INCREMENT;
 /*go*/
 ALTER TABLE		tbl_aluno ADD CONSTRAINT id_usuario_aluno_fk	FOREIGN KEY (id_usuario_fk)		REFERENCES tbl_usuario(id_usuario);
 /*go*/
