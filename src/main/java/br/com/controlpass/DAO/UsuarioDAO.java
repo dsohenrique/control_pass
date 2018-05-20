@@ -66,6 +66,7 @@ public class UsuarioDAO extends AbstractDAO {
             
             stmt = con.prepareStatement(sql);
             stmt.setString(1, usuario.getLogin());
+            /*stmt.setString(2, usuario.getSenha());*/
             rs = stmt.executeQuery();
             
             if (rs.next()) {
