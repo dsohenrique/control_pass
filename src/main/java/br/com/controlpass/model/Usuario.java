@@ -22,7 +22,7 @@ public class Usuario implements java.io.Serializable {
     private String nome;
     
     @Column(name = "tipo_usuario")
-    private int tipoUsuario;
+    private String tipoUsuario;
     
     @Column(name = "email")
     private String email;
@@ -60,13 +60,15 @@ public class Usuario implements java.io.Serializable {
         this.nome = nome;
     }
 
-    public int getTipoUsuario() {
+    public String getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(int tipoUsuario) {
+    public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+
+   
 
     public String getEmail() {
         return email;

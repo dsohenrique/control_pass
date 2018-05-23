@@ -15,6 +15,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:form style="margin-left: 40%">
+            <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
             <h:panelGrid columns="3">
                 <h:graphicImage library="images" name="icone_usuario.png" width="100"
                                 height="100" />
@@ -29,7 +30,7 @@ and open the template in the editor.
 
 
                 <p:outputLabel for="txtCpf" value="CPF:" />
-                <p:inputText id="txtCpf" label="Senha" value="" required="true"/>
+                <p:inputText id="txtCpf" label="Senha" required="true"/>
                 <br />
 
                 <h:panelGrid columns="2">

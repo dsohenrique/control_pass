@@ -18,7 +18,7 @@ public class ConnectionFactory {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
             }
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/control_pass?useTimezone=true&serverTimezone=UTC", "root", "");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/control_pass?useTimezone=true&serverTimezone=UTC", "root", "123456");
         } catch (SQLException excecao) {
             throw new RuntimeException(excecao);
         }

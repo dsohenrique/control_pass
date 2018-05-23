@@ -44,7 +44,7 @@ h2 {
 	<h:form id="form">
 
 
-		<p:dataTable value="#{testeMB.alunos}" var="alu">
+		<p:dataTable value="" var="alu">
 		
 		<p:column headerText="Selecionar">
 			<h:selectManyCheckbox>
@@ -54,21 +54,21 @@ h2 {
 		</p:column>
 
 			<p:column headerText="Nome">
-				<h:outputText value="#{alu.nome}" />
+				<h:outputText value="" />
 			</p:column>
 
 			<p:column headerText="Email">
-				<h:outputText value="#{alu.email}" />
+				<h:outputText value="" />
 			</p:column>
 
 			<p:column headerText="Nome">
-				<h:outputText value="#{alu.nascimento}" />
+				<h:outputText value="" />
 			</p:column>
 			
 			<p:column>
 			
 				<p:commandButton icon="ui-icon-search" 
-								 actionListener="#{testeMB.doView(alu)}"
+								 actionListener=""
 								 oncomplete="PF('dlgVisualizacao').show()"
 								 update=":dialogs:dlgVisualizacao"/>
 			

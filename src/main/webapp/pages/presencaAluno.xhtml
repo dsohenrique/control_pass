@@ -51,7 +51,8 @@ and open the template in the editor.
                 </p:dataTable>
 
             </p:fieldset>
-            <p:commandButton value="Sair" action="Inicial"/>
+            <p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
+            <p:button outcome="inicialResponsavel" value="Nova consulta"/>
         </h:form>
     </h:body>
 </html>

@@ -4,8 +4,7 @@
     xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
         <title>Administrador</title>
@@ -44,7 +43,8 @@
             style="text-align:left;">
             <h:graphicImage library="images" name="face.png" width="200" height="200" />
             <h:outputLabel value="Randy Marsh" />
-            <p:commandButton value="Sair" action="Inicial" icon="ui-icon-close" />
+            <p:button value="Voltar" outcome="layout" icon="ui-icon-close" />
+            <p:commandButton action="#{loginMB.logout()}" value="Deslogar"/>
         </h:panelGrid>
 
         <h:form id="form">
@@ -54,10 +54,10 @@
                     <p:panel header="Gerenciar">
                         <p:toolbar>  
                             <p:toolbarGroup align="center">  
-                                <p:button value="Validar Usuario"  />  
-                                <p:button value="Validar Aluno" outcome="TelaValidarAluno"  />  
-                                <p:button value="Inativar Usuario" outcome="TelaInativarUsuario" />  
-                                <p:button value="Inativar Aluno" outcome="TelaInativarAluno" />  
+                                <p:commandButton value="Validar Usuario" action="TelaValidarAluno.xhtml" />  
+                                <p:commandButton value="Inativar Usuario" action="TelaInativarUsuario.xhtml" /> 
+                                <p:commandButton value="Novo usuario" action="save.xhtml" />  
+                                <p:button value="recuperar" outcome="recuperar"/>
                             </p:toolbarGroup>
                         </p:toolbar>
                     </p:panel>

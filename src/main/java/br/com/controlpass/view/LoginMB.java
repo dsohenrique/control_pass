@@ -15,6 +15,13 @@ public class LoginMB {
 
     Usuario usuario = new Usuario();
     UsuarioDAO usuarioDAO = new UsuarioDAO();
+    public String logout() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) facesContext.getExternalContext()
+                .getSession(false);
+        session.invalidate();
+        return usuario.getNome() + "deslogado com sucesso!";
+    }
 
     public String autenticar() {
         try {
@@ -33,6 +40,7 @@ public class LoginMB {
                             ex.getMessage()));
             return "";
         }
+        
     }
 
     public Usuario getUsuario() {

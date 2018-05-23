@@ -1,6 +1,7 @@
 package br.com.controlpass.enums;
 
 public enum TipoUsuarioENUM {
+    
     ALUNO("Aluno"),
     PROFESSOR("Professor"),
     ADMINISTRADOR("Administrador"),
