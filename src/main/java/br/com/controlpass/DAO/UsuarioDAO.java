@@ -7,22 +7,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 public class UsuarioDAO extends AbstractDAO {
-
-    public int getCPF(Usuario usuario) {
-        String sql = "SELECT u.cpf FROM Usuario u WHERE u.cpf=";
-        /*ResultSet rs;
-    	return 1234;*/
-        //TODO retornar cpf com hibernate e returnar com o cpf
-        return 0;
-    }
-
-   
-
-    public void adiciona(Usuario usuario) throws BusinessException {
+public void adiciona(Usuario usuario) throws BusinessException {
 
         PreparedStatement stmt = null;
 
