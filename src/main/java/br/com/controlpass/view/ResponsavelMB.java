@@ -1,7 +1,9 @@
 package br.com.controlpass.view;
 
 import br.com.controlpass.DAO.ResponsavelDAO;
+import br.com.controlpass.exception.BusinessException;
 import br.com.controlpass.model.Chamada;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -13,7 +15,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ResponsavelMB {
     public  List<Chamada> presenca = new ArrayList<>();
-    public void listar() {
+    public void listar() throws BusinessException {
         ResponsavelDAO responsavelDAO = new ResponsavelDAO();
         presenca = responsavelDAO.getPresenca();
     }

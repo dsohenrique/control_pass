@@ -11,34 +11,31 @@ import java.util.List;
 
 public class ResponsavelDAO extends AbstractDAO {
 
-    public List<Chamada> getPresenca(){
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
+    public List<Chamada> getPresenca() throws BusinessException {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "SELECT id_aluno, nome, data, hora_inicio, hora_final FROM tbl_aluno a INNER JOIN tbl_usuario u ON u.id_usuario = a.id_usuario_fk INNER JOIN tbl_chamada c ON id_aluno = id_aluno_fk WHERE tipo_usuario = 2 AND cpf = 47467670842";
         try {
             Connection con = getConnection();
             List<Chamada> presenca = new ArrayList<>();
-            String sql = "SELECT id_aluno a, nome u, data c, hora_inicio c, hora_final c \n"
-                    + "FROM tbl_aluno a \n"
-                    + "INNER JOIN tbl_usuario u ON u.id_usuario = a.id_usuario_fk\n"
-                    + "INNER JOIN tbl_chamada c ON id_aluno = id_aluno_fk \n"
-                    + "WHERE tipo_usuario = 2 AND cpf = 47467670842;";
             stmt = con.prepareStatement(sql);
             rs = stmt.executeQuery();
-            while (rs.next()) {
+            while(rs.next()) {
                 Chamada chamada = new Chamada();
-                chamada.setNome(rs.getString("nome"));
-                //chamada.setDataInicio(rs.getDate("data"));
-                //chamada.getHoraInicio(rs.getTime("hora_inicio"));
+                chamada.setNome_aluno(rs.getString("nome"));
+                chamada.setDataInicio(rs.getDate("data"));
+                //chamada.getHoraInicio(rs.getDate("hora_inicio"));
                 //chamada.getHoraFinal(rs.getTime("hora_final"));
                 presenca.add(chamada);
-            }
-            return presenca;
-        } catch (SQLException e) {            
+                return presenca;
+            } 
+        } catch (SQLException e) {
             return null;
         } finally {
             closeStatement(stmt);
             closeResultSet(rs);
             closeConnection();
         }
-}
+        return null;
+    }
 }

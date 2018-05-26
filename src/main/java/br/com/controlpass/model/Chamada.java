@@ -26,12 +26,17 @@ public class Chamada {
     @Id
     @GeneratedValue
     private int id_chamada;
-
+    
+    @Column(name="nome_aluno")
+    private String nome_aluno;
+    
     @Column(name = "hora_inicio")
-    private int horaInicio;
+    @Temporal(TemporalType.TIME)
+    private Date horaInicio;
 
     @Column(name = "hora_final")
-    private int horaFinal;
+    @Temporal(TemporalType.TIME)
+    private Date horaFinal;
 
     @Column(name = "data")
     @Temporal(TemporalType.DATE)
@@ -52,9 +57,7 @@ public class Chamada {
     @JoinColumn(name = "id_aluno_fk")
     private Aluno aluno = new Aluno();
     
-    @OneToOne
-    @JoinColumn(name = "nome")
-    private String nome;
+    
 
     /*@ManyToOne
 	@JoinColumn(name="id_usuario")
@@ -67,24 +70,23 @@ public class Chamada {
         this.id_chamada = id_chamada;
     }
 
-    public int getHoraInicio() {
+    public Date getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(int horaInicio) {
+    public void setHoraInicio(Date horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public int getHoraFinal() {
+    public Date getHoraFinal() {
         return horaFinal;
     }
 
-    public void setHoraFinal(int horaFinal) {
+    public void setHoraFinal(Date horaFinal) {
         this.horaFinal = horaFinal;
     }
-
     
-
+    
     public Date getDataInicio() {
         return dataInicio;
     }
@@ -117,12 +119,14 @@ public class Chamada {
         this.aluno = aluno;
     }  
 
-    public String getNome() {
-        return nome;
+    public String getNome_aluno() {
+        return nome_aluno;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_aluno(String nome_aluno) {
+        this.nome_aluno = nome_aluno;
     }
+
+    
     
 }

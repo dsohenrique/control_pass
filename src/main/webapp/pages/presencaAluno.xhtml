@@ -21,20 +21,19 @@ and open the template in the editor.
                 <h2>Responsável</h2>
             </h:panelGrid>
         </h:form>
-        <h:form style="text-align: left">
-
+        <h:form>
             <p:fieldset>
                 <p:dataTable value="#{responsavelMB.presenca}" var="chamada">
-                <h:panelGrid columns="1">
                     <p:column headerText="Nome">
-                    <h:outputText value="#{chamada.nome}" />
+                        <h:outputText value="#{chamada.nome_aluno}" />
+                    </p:column>
+                    <p:column headerText="Dia">
+                        <h:outputText value="#{chamada.dataInicio}" />
                     </p:column>
                     <!--
                     <h:outputText value="Total Presença: " />
                     <h:outputText value="" />
 
-                    <h:outputText value="Data" />
-                    </p:column>
 
                     <p:column headerText="Entrada">
                         <h:outputText value="" />
@@ -49,10 +48,10 @@ and open the template in the editor.
                     </p:column>
                     -->
 
-                </h:panelGrid>
                 </p:dataTable>
-
             </p:fieldset>
+
+            <p:commandButton value="Consultar" action="#{responsavelMB.listar()}"/>
             <p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
             <p:button outcome="inicialResponsavel" value="Nova consulta"/>
         </h:form>
