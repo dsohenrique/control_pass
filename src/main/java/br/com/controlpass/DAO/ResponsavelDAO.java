@@ -23,9 +23,9 @@ public class ResponsavelDAO extends AbstractDAO {
             while(rs.next()) {
                 Chamada chamada = new Chamada();
                 chamada.setNome_aluno(rs.getString("nome"));
-                chamada.setDataInicio(rs.getDate("data"));
-                //chamada.getHoraInicio(rs.getDate("hora_inicio"));
-                //chamada.getHoraFinal(rs.getTime("hora_final"));
+                chamada.setData(rs.getDate("data"));
+                //chamada.setHora_inicio(rs.getDate("hora_inicio"));
+                //chamada.setHora_final(rs.getDate("hora_final"));
                 presenca.add(chamada);
                 return presenca;
             } 

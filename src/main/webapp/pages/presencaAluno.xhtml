@@ -28,25 +28,14 @@ and open the template in the editor.
                         <h:outputText value="#{chamada.nome_aluno}" />
                     </p:column>
                     <p:column headerText="Dia">
-                        <h:outputText value="#{chamada.dataInicio}" />
+                        <h:outputText value="#{chamada.data}" />
                     </p:column>
-                    <!--
-                    <h:outputText value="Total Presença: " />
-                    <h:outputText value="" />
-
-
-                    <p:column headerText="Entrada">
-                        <h:outputText value="" />
+                    <p:column headerText="Registro entrada">
+                        <h:outputText value="10:00:00" />
                     </p:column>
-
-                    <p:column headerText="Saída">
-                        <h:outputText value="" />
+                    <p:column headerText="Registro saída">
+                        <h:outputText value="11:00:00" />
                     </p:column>
-
-                    <p:column headerText="Situação">
-                        <h:outputText value="" />
-                    </p:column>
-                    -->
 
                 </p:dataTable>
             </p:fieldset>

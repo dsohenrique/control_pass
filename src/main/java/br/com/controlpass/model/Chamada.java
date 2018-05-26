@@ -8,11 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,25 +20,24 @@ import lombok.Setter;
 @Table(name = "tbl_chamada")
 public class Chamada {
 
-    
     @Id
     @GeneratedValue
     private int id_chamada;
-    
-    @Column(name="nome_aluno")
-    private String nome_aluno;
-    
-    @Column(name = "hora_inicio")
-    @Temporal(TemporalType.TIME)
-    private Date horaInicio;
 
-    @Column(name = "hora_final")
-    @Temporal(TemporalType.TIME)
-    private Date horaFinal;
+    @Column(name = "nome_aluno")
+    private String nome_aluno;
 
     @Column(name = "data")
     @Temporal(TemporalType.DATE)
-    private Date dataInicio;
+    private Date data;
+    
+//    @Column(name = "hora_inicio")
+//    @Temporal(TemporalType.TIME)
+//    private Date hora_inicio;
+//
+//    @Column(name = "hora_final")
+//    @Temporal(TemporalType.TIME)
+//    private Date hora_final;
 
     @ManyToOne
     @JoinColumn(name = "id_curso_fk")
@@ -56,8 +53,7 @@ public class Chamada {
     @ManyToOne
     @JoinColumn(name = "id_aluno_fk")
     private Aluno aluno = new Aluno();
-    
-    
+
 
     /*@ManyToOne
 	@JoinColumn(name="id_usuario")
@@ -69,32 +65,7 @@ public class Chamada {
     public void setId_chamada(int id_chamada) {
         this.id_chamada = id_chamada;
     }
-
-    public Date getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public Date getHoraFinal() {
-        return horaFinal;
-    }
-
-    public void setHoraFinal(Date horaFinal) {
-        this.horaFinal = horaFinal;
-    }
     
-    
-    public Date getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
     public Curso getCurso() {
         return curso;
     }
@@ -117,7 +88,7 @@ public class Chamada {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
-    }  
+    }
 
     public String getNome_aluno() {
         return nome_aluno;
@@ -127,6 +98,12 @@ public class Chamada {
         this.nome_aluno = nome_aluno;
     }
 
-    
-    
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
 }
