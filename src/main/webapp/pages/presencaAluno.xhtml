@@ -24,16 +24,16 @@ and open the template in the editor.
         <h:form style="text-align: left">
 
             <p:fieldset>
+                <p:dataTable value="#{responsavelMB.presenca}" var="chamada">
                 <h:panelGrid columns="1">
-                    <h:outputText value="Nome:" />
-                    <h:outputText value="" />
+                    <p:column headerText="Nome">
+                    <h:outputText value="#{chamada.nome}" />
+                    </p:column>
+                    <!--
                     <h:outputText value="Total Presença: " />
                     <h:outputText value="" />
-                </h:panelGrid>
-                <p:dataTable value="" var="pres">
 
-                    <p:column headerText="Data">
-                        <h:outputText value="" />
+                    <h:outputText value="Data" />
                     </p:column>
 
                     <p:column headerText="Entrada">
@@ -47,7 +47,9 @@ and open the template in the editor.
                     <p:column headerText="Situação">
                         <h:outputText value="" />
                     </p:column>
+                    -->
 
+                </h:panelGrid>
                 </p:dataTable>
 
             </p:fieldset>

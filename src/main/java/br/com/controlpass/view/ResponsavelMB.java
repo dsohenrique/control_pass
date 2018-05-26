@@ -1,41 +1,51 @@
 package br.com.controlpass.view;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import br.com.controlpass.DAO.ResponsavelDAO;
 import br.com.controlpass.model.Chamada;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class ResponsavelMB {
-    private List<Chamada> chamadas = new ArrayList<Chamada>();
-    private Chamada exibicao = new Chamada();
-
-    public List<Chamada> getChamadas() {
-        return chamadas;
+    public  List<Chamada> presenca = new ArrayList<>();
+    public void listar() {
+        ResponsavelDAO responsavelDAO = new ResponsavelDAO();
+        presenca = responsavelDAO.getPresenca();
     }
-
-    public void setChamadas(List<Chamada> Chamadas) {
-        this.chamadas = Chamadas;
-    }
-
-    public Chamada getExibicao() {
-        return exibicao;
-    }
-
-    public void setExibicao(Chamada exibicao) {
-        this.exibicao = exibicao;
-    }
-
-    @PostConstruct
-    public void postConstruct(){
-        findAll();
-    }
-    private void findAll(){
-        Chamada chamada = new Chamada();
-        chamada.getAluno();
-        
-        
-    }
+//    }
+//    private List<Chamada> presenca;
+//    
+//    @ManagedProperty("#{responsavelDAO}")
+//    private ResponsavelDAO responsavelDAO;
+//    
+//    public List<Chamada> getPresenca(){
+//        return presenca;
+//    }
+//
+//    public void setPresenca(List<Chamada> presenca) {
+//        this.presenca = presenca;
+//    }
+//    
+//    public void init(){
+//        presenca = responsavelDAO.getPresenca();
+//    }
+//
+//    public void setResponsavelDAO(ResponsavelDAO responsavelDAO) {
+//        this.responsavelDAO = responsavelDAO;
+//    }
     
-}
+//    
+
+    public List<Chamada> getPresenca() {
+        return presenca;
+    }
+
+    public void setPresenca(List<Chamada> presenca) {
+        this.presenca = presenca;
+    }
+    }

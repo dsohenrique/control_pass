@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,15 +22,16 @@ import lombok.Setter;
 @Table(name = "tbl_chamada")
 public class Chamada {
 
+    
     @Id
     @GeneratedValue
     private int id_chamada;
 
     @Column(name = "hora_inicio")
-    private String horaInicio;
+    private int horaInicio;
 
     @Column(name = "hora_final")
-    private String horaFinal;
+    private int horaFinal;
 
     @Column(name = "data")
     @Temporal(TemporalType.DATE)
@@ -49,6 +51,10 @@ public class Chamada {
     @ManyToOne
     @JoinColumn(name = "id_aluno_fk")
     private Aluno aluno = new Aluno();
+    
+    @OneToOne
+    @JoinColumn(name = "nome")
+    private String nome;
 
     /*@ManyToOne
 	@JoinColumn(name="id_usuario")
@@ -61,21 +67,23 @@ public class Chamada {
         this.id_chamada = id_chamada;
     }
 
-    public String getHoraInicio() {
+    public int getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(String horaInicio) {
+    public void setHoraInicio(int horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public String getHoraFinal() {
+    public int getHoraFinal() {
         return horaFinal;
     }
 
-    public void setHoraFinal(String horaFinal) {
+    public void setHoraFinal(int horaFinal) {
         this.horaFinal = horaFinal;
     }
+
+    
 
     public Date getDataInicio() {
         return dataInicio;
@@ -107,6 +115,14 @@ public class Chamada {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }  
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
 }
