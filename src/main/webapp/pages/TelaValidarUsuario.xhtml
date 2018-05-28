@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+        <title>Administrador</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        <style>
+            body {
+                background-color: #DDA0DD;
+            }
+
+            h2 {
+                text-align: center !important;
+            }
+            .PanelGrid1 {
+                text-align: left !important;
+                padding-top: 1px;
+            }
+        </style>
+
+
+        <p:growl id="msgs" showDetail="false" autoUpdate="true" sticky="true"
+                 life="7500" />
+
+        <h2>Validar Aluno V1.0</h2>
+        <f:view>
+            <f:event listener="#{administradorDAO.listarUsuario()}" type="preRenderView"/>
+        </f:view>
+
+        <h:panelGrid
+            columnClasses="PanelGrid1"
+            columns="1" cellpadding="4" cellspacing="4" width="100%" border="0"
+            style="text-align:left;">
+            <h:graphicImage library="images" name="face4.png" width="200" height="200" />
+            <h:outputLabel value="Butters Stotch" />
+            <p:commandButton value="Sair" icon="ui-icon-close" />
+        </h:panelGrid>
+
+        <h:form>
+            <p:fieldset>
+                <p:dataTable value="#{administradorDAO.usuarios}" var="usuario">
+
+                    <p:column headerText="Código interno">
+                        <h:outputText value="#{usuario.idUsuario}" />
+                    </p:column>
+
+                    <p:column headerText="CPF">
+                        <h:outputText value="#{usuario.cpf}" />
+                    </p:column>
+
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{usuario.nome}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo de usuario">
+                        <h:outputText value="#{usuario.tipoUsuario}" />
+                    </p:column>
+
+                    <p:column headerText="Email">
+                        <h:outputText value="#{usuario.email}" />
+                    </p:column>
+
+                    <p:column headerText="Status">
+                        <h:outputText value="#{usuario.status}" />
+                    </p:column>
+
+                </p:dataTable>                
+                <p:commandButton value="Consultar" action="#{administradorDAO.listarUsuario()}"/>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>
+

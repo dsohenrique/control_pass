@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class UsuarioDAO extends AbstractDAO {
 public void adiciona(Usuario usuario) throws BusinessException {
@@ -87,5 +88,4 @@ public void adiciona(Usuario usuario) throws BusinessException {
         }
 
     }
-
 }
