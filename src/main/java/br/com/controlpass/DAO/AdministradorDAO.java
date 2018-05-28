@@ -1,6 +1,5 @@
 package br.com.controlpass.DAO;
 
-import br.com.controlpass.exception.BusinessException;
 import br.com.controlpass.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,12 +11,13 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class AdministradorDAO extends AbstractDAO {
-            public List<Usuario> usuarios = new ArrayList<>();
+
+    public List<Usuario> usuarios = new ArrayList<>();
 
     public List<Usuario> listarUsuario() {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "SELECT id_usuario, cpf, nome, tipo_usuario, email, status FROM tbl_usuario WHERE status = 1";
+        String sql = "SELECT id_usuario, cpf, nome, tipo_usuario, email, status FROM tbl_usuario ";
         try {
             Connection con = getConnection();
             stmt = con.prepareStatement(sql);
@@ -32,7 +32,6 @@ public class AdministradorDAO extends AbstractDAO {
                 usuarioAtivo.setStatus(rs.getInt("status"));
 
                 usuarios.add(usuarioAtivo);
-                return usuarios;
             }
         } catch (SQLException e) {
             return null;
@@ -40,9 +39,8 @@ public class AdministradorDAO extends AbstractDAO {
             closeStatement(stmt);
             closeResultSet(rs);
             closeConnection();
-            
         }
-        return null;
+            return usuarios;
     }
 
     public List<Usuario> getUsuarios() {
@@ -52,5 +50,5 @@ public class AdministradorDAO extends AbstractDAO {
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-    
-    }
+
+}

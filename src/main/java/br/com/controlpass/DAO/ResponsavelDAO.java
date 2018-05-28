@@ -28,7 +28,6 @@ public class ResponsavelDAO extends AbstractDAO {
                 //chamada.setHora_inicio(rs.getDate("hora_inicio"));
                 //chamada.setHora_final(rs.getDate("hora_final"));
                 presenca.add(chamada);
-                return presenca;
             } 
         } catch (SQLException e) {
             return null;
@@ -37,7 +36,7 @@ public class ResponsavelDAO extends AbstractDAO {
             closeResultSet(rs);
             closeConnection();
         }
-        return null;
+        return presenca;
     }
 
     public List<Chamada> getPresenca() {

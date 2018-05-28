@@ -11,21 +11,6 @@
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        <style>
-            body {
-                background-color: #DDA0DD;
-            }
-
-            h2 {
-                text-align: center !important;
-            }
-            .PanelGrid1 {
-                text-align: left !important;
-                padding-top: 1px;
-            }
-        </style>
-
-
         <p:growl id="msgs" showDetail="false" autoUpdate="true" sticky="true"
                  life="7500" />
 
@@ -40,7 +25,7 @@
             style="text-align:left;">
             <h:graphicImage library="images" name="face4.png" width="200" height="200" />
             <h:outputLabel value="Butters Stotch" />
-            <p:commandButton value="Sair" icon="ui-icon-close" />
+            <p:button value="Voltar" outcome="index" icon="ui-icon-close" />
         </h:panelGrid>
 
         <h:form>
