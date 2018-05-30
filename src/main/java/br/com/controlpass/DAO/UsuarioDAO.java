@@ -42,6 +42,29 @@ public void adiciona(Usuario usuario) throws BusinessException {
         }
 
     }
+public void inativa(Usuario usuario) throws BusinessException {
+
+        PreparedStatement stmt = null;
+
+        String sql = "UPDATE tbl_usuario SET status = 2 WHERE cpf = ? ";
+
+        try {
+            Connection con = getConnection();
+
+            stmt = con.prepareStatement(sql);
+
+            stmt.setString(1, usuario.getCpf());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        } finally {
+            closeStatement(stmt);
+            closeConnection();
+        }
+
+    }
 
     public Usuario autentica(Usuario usuario) throws BusinessException {
 
