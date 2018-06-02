@@ -21,15 +21,15 @@ and open the template in the editor.
                                 height="100" />
                 <h1>Control Pass V1.0</h1>
                 <h2>Responsável</h2>
-                <f:view>
-                    <f:event listener="#{responsavelDAO.getPresencas()}" type="preRenderView"/>
-                </f:view>
             </h:panelGrid>
         </h:form>
         <h:form>
             <p:dataTable value="#{responsavelDAO.presenca}" var="chamada" widgetVar="chamadaTable" emptyMessage="Não foram encontrados registros para os respectivos filtros" filteredValue="#{dtFilterView.filteredCars}">
-                <p:column headerText="Nome">
-                    <h:outputText value="#{chamada.nome_aluno}" />
+               <!-- <p:column headerText="Nome">
+                    <h:outputText value="#{chamada.nome}" />
+                </p:column>-->
+                <p:column headerText="RM">
+                    <h:outputText value="#{chamada.rm}" />
                 </p:column>
                 <p:column headerText="Dia">
                     <h:outputText value="#{chamada.data}" />

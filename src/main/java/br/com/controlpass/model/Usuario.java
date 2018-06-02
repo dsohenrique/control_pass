@@ -18,6 +18,9 @@ public class Usuario implements java.io.Serializable {
     @Column(name = "cpf")
     private String cpf;
     
+    @Column(name="rm")
+    private int rm;
+    
     @Column(name = "nome")
     private String nome;
     
@@ -100,6 +103,14 @@ public class Usuario implements java.io.Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getRm() {
+        return rm;
+    }
+
+    public void setRm(int rm) {
+        this.rm = rm;
     }
     
 }

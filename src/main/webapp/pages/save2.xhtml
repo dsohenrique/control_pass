@@ -58,8 +58,7 @@
                                  converter="cpfConverter" validator="StellaCPFValidator" id="txtCpf" />
                     
                     <h:outputText value="RM do Aluno:" />
-                    <p:inputText value="#{usuarioMB.usuario.cpf}" style="width:140px;" label="RM" required="true"
-                                 id="txtRm" />
+                    <p:inputText value="#{usuarioMB.usuario.rm}" style="width:140px;" label="RM" required="true" id="txtRm" />
 
                     <h:outputText value="Nome:" />
                     <p:inputText value="#{usuarioMB.usuario.nome}" style="width:400px;"
@@ -76,11 +75,9 @@
                         </f:validateRegex>
 
                     </p:inputText>
-
-
-
                     <h:outputText value="UF:" />
                     <h:outputText value="SP" styleClass="negrito" />
+                    
 
                     <h:outputText value="Unidade" />
                     <p:selectOneMenu>
@@ -105,6 +102,8 @@
 
                     <p:button value="Voltar" outcome="index"/>
                 </h:panelGrid>
+                <h:outputText value="#{usuarioMB.usuario.setTipoUsuario('2')}"/>
+                <h:outputText value="#{usuarioMB.usuario.setStatus(1)}"/>
                 <p:ajaxStatus onstart="PF('dgLoader').show()" onsuccess="PF('dgLoader').hide()" />
                 <p:dialog widgetVar="dgLoader" modal="true" resizable="false" showHeader="false">
 

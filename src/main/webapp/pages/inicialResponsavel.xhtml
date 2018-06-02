@@ -14,6 +14,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
+
+        <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
         <h:form style="margin-left: 40%">
             <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
             <h:panelGrid columns="3">
@@ -23,25 +25,33 @@ and open the template in the editor.
                 <h2>Responsável</h2>
             </h:panelGrid><br/>
             <p:outputLabel value="Para consultar, digite o CPF do aluno:" />
-            
+
         </h:form>
-        <h:form style="text-align: center">
+        <h:form id="frmConsulta">
             <p:fieldset style="width:500px; margin-left: 35%">
-
-
-                <p:outputLabel for="txtCpf" value="CPF:" />
-                <p:inputText id="txtCpf" label="Senha" required="true"/>
-                <br />
-
-                <h:panelGrid columns="2">
-
-
-                    
-                   <p:button value="Consultar" outcome="presencaAluno2" />
-
-                </h:panelGrid>
+                <p:outputLabel for="txtCpf" value="RM:" />
+                <p:inputText id="txtCpf" label="rm" required="true" value="#{usuario.rm}"/>
+                <p:commandButton value="Consulta" actionListener="#{responsavelDAO.getPresencas(usuario)}" update="@form frmConsulta"/>
+                <p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
             </p:fieldset>
+            <p:dataTable value="#{responsavelDAO.presenca}" var="chamada">
+                <p:column headerText="Nome">
+                    <h:outputText value="#{chamada.rm}" />
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{chamada.nome}" />
+                </p:column>
+                <p:column headerText="Dia">
+                    <h:outputText value="#{chamada.data}" />
+                </p:column>
+                <p:column headerText="Registro entrada">
+                    <h:outputText value="#{chamada.hora_inicio}" />
+                </p:column>
+                <p:column headerText="Registro saída">
+                    <h:outputText value="#{chamada.hora_final}" />
+                </p:column>-->
+            </p:dataTable>
         </h:form>
-        
+
     </h:body>
 </html>

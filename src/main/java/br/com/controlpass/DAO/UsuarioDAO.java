@@ -7,27 +7,27 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class UsuarioDAO extends AbstractDAO {
 public void adiciona(Usuario usuario) throws BusinessException {
 
         PreparedStatement stmt = null;
 
-        String sql = "INSERT INTO tbl_usuario(cpf,nome,tipo_usuario, email, status, login, senha) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tbl_usuario(rm, cpf, nome,tipo_usuario, email, status, login, senha) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
             Connection con = getConnection();
 
             stmt = con.prepareStatement(sql);
 
-            stmt.setString(1, usuario.getCpf());
-            stmt.setString(2, usuario.getNome());
-            stmt.setString(3, usuario.getTipoUsuario());
-            stmt.setString(4, usuario.getEmail());
-            stmt.setInt(5, usuario.getStatus());
-            stmt.setString(6, usuario.getLogin());
-            stmt.setString(7, ShaEncoder.encode(usuario.getSenha()));
+            stmt.setInt(1,usuario.getRm());
+            stmt.setString(2, usuario.getCpf());
+            stmt.setString(3, usuario.getNome());
+            stmt.setString(4, usuario.getTipoUsuario());
+            stmt.setString(5, usuario.getEmail());
+            stmt.setInt(6, usuario.getStatus());
+            stmt.setString(7, usuario.getLogin());
+            stmt.setString(8, ShaEncoder.encode(usuario.getSenha()));
 
             stmt.execute();
 
@@ -46,7 +46,7 @@ public void inativa(Usuario usuario) throws BusinessException {
 
         PreparedStatement stmt = null;
 
-        String sql = "UPDATE tbl_usuario SET status = 2 WHERE cpf = ? ";
+        String sql = "UPDATE tbl_usuario SET status = 2 WHERE cpf = ?";
 
         try {
             Connection con = getConnection();
@@ -55,7 +55,7 @@ public void inativa(Usuario usuario) throws BusinessException {
 
             stmt.setString(1, usuario.getCpf());
 
-            stmt.executeUpdate();
+            stmt.execute();
 
         } catch (SQLException u) {
             throw new RuntimeException(u);
@@ -77,7 +77,6 @@ public void inativa(Usuario usuario) throws BusinessException {
 
             stmt = con.prepareStatement(sql);
             stmt.setString(1, usuario.getLogin());
-            /*stmt.setString(2, usuario.getSenha());*/
             rs = stmt.executeQuery();
 
             if (rs.next()) {
@@ -93,7 +92,7 @@ public void inativa(Usuario usuario) throws BusinessException {
                 if (!ShaEncoder.encode(usuario.getSenha()).equals(usuarioEncontrado.getSenha())) {
                     throw new BusinessException("Usuario ou Senha invalidos!");
                 }
-
+                
                 return usuarioEncontrado;
             } else {
                 throw new BusinessException("Usuario ou Senha invalidos!");

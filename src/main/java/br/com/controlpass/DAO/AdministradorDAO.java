@@ -17,7 +17,7 @@ public class AdministradorDAO extends AbstractDAO {
     public List<Usuario> listarUsuario() {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "SELECT id_usuario, cpf, nome, tipo_usuario, email, status FROM tbl_usuario ";
+        String sql = "SELECT id_usuario, rm, cpf, nome, tipo_usuario, email, status FROM tbl_usuario ";
         try {
             Connection con = getConnection();
             stmt = con.prepareStatement(sql);
@@ -25,6 +25,7 @@ public class AdministradorDAO extends AbstractDAO {
             while (rs.next()) {
                 Usuario usuarioAtivo = new Usuario();
                 usuarioAtivo.setIdUsuario(rs.getInt("id_usuario"));
+                usuarioAtivo.setRm(rs.getInt("rm"));
                 usuarioAtivo.setCpf(rs.getString("cpf"));
                 usuarioAtivo.setNome(rs.getString("nome"));
                 usuarioAtivo.setTipoUsuario(rs.getString("tipo_usuario"));
