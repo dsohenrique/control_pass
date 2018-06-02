@@ -36,18 +36,12 @@ and open the template in the editor.
                 <h:panelGrid columns="2">
 
 
-                    <p:commandButton
-                        actionListener="#"
-                        oncomplete="PF('dlgVisualizacao').show()"
-                        update=":dialogs:dlgVisualizacao"
-                        value="Consultar" />
+                    
+                   <p:button value="Consultar" outcome="presencaAluno2" />
 
                 </h:panelGrid>
             </p:fieldset>
         </h:form>
-        <h:form id="dialogs">
-            <ui:include src="dadosAluno.xhtml"/>
-
-        </h:form>
+        
     </h:body>
 </html>
