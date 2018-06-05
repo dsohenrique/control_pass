@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
         <h:form style="text-align:center">
-            <h1>Control Pass V1.0</h1><br/>
+            <h1>JZNCALL V1.0</h1><br/>
             <h2>Bem-Vindo(a)</h2><br/>
             <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
             <p:outputLabel value=" Insira seus dados de login!!!"/><br/>
@@ -23,7 +23,8 @@
                     <h:inputSecret id="txtSenha" value="#{loginMB.usuario.senha}"/>
                 </h:panelGrid> 
                 <h:panelGrid columns="4" style="margin-left: 100px">
-                    <p:commandButton value="Entrar" action="#{loginMB.autenticar()}" update="@form"/>
+                    <p:commandButton value="Entrar" action="#" update=""/>
+                    <p:commandButton value="Cadastrar" action="#" update=""/>
                 </h:panelGrid>
             </p:fieldset>    
         </h:form>

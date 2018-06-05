@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.controlpass</groupId>
-    <artifactId>controlpass</artifactId>
+    <artifactId>jzncall</artifactId>
     <version>2.0</version>
     <packaging>war</packaging>
-    <name>Control Pass</name>
+    <name>jzncall</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
