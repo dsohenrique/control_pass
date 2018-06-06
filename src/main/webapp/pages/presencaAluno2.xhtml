@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>ControlPass</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form style="margin-left: 40%">
+            <h:panelGrid columns="3">
+                <h:graphicImage library="images" name="icone_usuario.png" width="100"
+                                height="100" />
+                <h1>Control Pass V1.0</h1>
+                <h2>Responsável</h2>
+            </h:panelGrid>
+        </h:form>
+        <h:form>
+            <p:dataTable value="#{responsavelDAO.presenca}" var="chamada" widgetVar="chamadaTable" emptyMessage="Não foram encontrados registros para os respectivos filtros" filteredValue="#{dtFilterView.filteredCars}">
+               <!-- <p:column headerText="Nome">
+                    <h:outputText value="#{chamada.nome}" />
+                </p:column>-->
+                <p:column headerText="RM">
+                    <h:outputText value="#{chamada.rm}" />
+                </p:column>
+                <p:column headerText="Dia">
+                    <h:outputText value="#{chamada.data}" />
+                </p:column>
+                    
+                    
+                <p:column filterBy="ano" headerText="Ano" filterMatchMode="in">
+                    <f:facet name="filter">
+                        <h:selectOneMenu label="Ano" onchange="PF('chamadaTable').filter()">
+                            <f:selectItem itemLabel="2018"  />
+                         </h:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="2018" />
+                </p:column>
+
+                <p:column filterBy="curso" headerText="Curso" filterMatchMode="in">
+                    <f:facet name="filter">
+                        <p:selectCheckboxMenu label="Curso" onchange="PF('chamadaTable').filter()" panelStyle="width:125px" scrollHeight="150">
+                            <f:selectItems value="---Selecione---" />
+                            <f:selectItems value="INFORMATICA" />
+                        </p:selectCheckboxMenu>
+                    </f:facet>
+                    <h:outputText value="INFORMATICA" />
+                </p:column>
+                    
+                    
+                <p:column filterBy="modulo" headerText="Modulo" footerText="in" filterMatchMode="in">
+                    <f:facet name="filter">
+                        <p:selectCheckboxMenu label="Modulo" onchange="PF('chamadaTable').filter()">
+                            <f:selectItems value="---Selecione---" />
+                             <f:selectItem itemLabel="MÓDULO I"  />
+                             <f:selectItem itemLabel="MÓDULO II"  />
+                             <f:selectItem itemLabel="MÓDULO III"  />
+                        </p:selectCheckboxMenu>
+                    </f:facet>
+                    <h:outputText value="MODULO II" />
+                </p:column>
+                    
+                <p:column filterBy="disciplina" headerText="Disciplina" footerText="in" filterMatchMode="in">
+                    <f:facet name="filter">
+                        <h:selectOneMenu label="Disciplina" onchange="PF('chamadaTable').filter()">
+                            <f:selectItem itemLabel="TPI II"  />
+                         </h:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="TPI II" />
+                </p:column>
+
+               
+                <p:column headerText="Registro entrada">
+                    <h:outputText value="10:00:00" />
+                </p:column>
+                <p:column headerText="Registro saída">
+                    <h:outputText value="11:00:00" />
+                </p:column>
+
+            </p:dataTable>
+
+
+            <p:commandButton value="Consultar" action="#{responsavelMB.listar()}"/>
+            <p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
+            <p:button outcome="inicialResponsavel" value="Nova consulta"/>
+        </h:form>
+    </h:body>
+</html>
