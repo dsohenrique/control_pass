@@ -36,7 +36,7 @@ and open the template in the editor.
                 <p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
             </p:fieldset>
             <p:dataTable value="#{responsavelDAO.presenca}" var="chamada">
-                <p:column headerText="Nome">
+                <p:column headerText="RM">
                     <h:outputText value="#{chamada.rm}" />
                 </p:column>
                 <p:column headerText="Nome">
@@ -46,7 +46,6 @@ and open the template in the editor.
                 
                 
                 <p:column filterBy="#{chamada.data}" headerText="Data" filterMatchMode="exact">
-                    
                     <h:outputText value="#{chamada.data}"/>
                 </p:column>
 

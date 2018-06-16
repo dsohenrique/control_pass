@@ -17,7 +17,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
 @Table(name = "tbl_chamada")
 @ManagedBean
 public class Chamada {
