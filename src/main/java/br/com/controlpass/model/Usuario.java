@@ -112,5 +112,9 @@ public class Usuario implements java.io.Serializable {
     public void setRm(int rm) {
         this.rm = rm;
     }
+
+    public String getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
