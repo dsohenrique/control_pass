@@ -84,15 +84,13 @@
                     <p:outputLabel value="Login" />
                     <p:inputText id="txtLogin" value="#{usuarioMB.usuario.login}"/>
 
-                    <p:outputLabel value="senha" />
-                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" id="txtSenha" value="#{usuarioMB.usuario.senha}" />
-
                     <!--<p:outputLabel value=" confirme senha" />
                     <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" />-->
 
                 </h:panelGrid>
                 <h:outputText value="#{usuarioMB.usuario.setTipoUsuario('1')}"/>
-                <h:outputText value="#{usuarioMB.usuario.setStatus(1)}"/>
+                <h:outputText value="#{usuarioMB.usuario.setStatus('1')}"/>
+                <h:outputText value="#{usuarioMB.usuario.setSenha('controlpass')}"/>
                 <h:panelGrid columns="3">
                     <p:commandButton action="#{usuarioMB.cadastro()}"
                                      value="Cadastrar" update=":msgs form" />

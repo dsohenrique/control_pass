@@ -11,17 +11,38 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @ViewScoped
 public class ResponsavelMB {
-    
-//    public void listar() throws BusinessException {
-//        ResponsavelDAO responsavelDAO = new ResponsavelDAO();
-//    try {
-//         responsavelDAO.getPresencas(usuario);
-//        } catch (BusinessException ex) {
-//            FacesContext.getCurrentInstance().addMessage(
-//                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-//                            "Erro",
-//                            ex.getMessage()));
-//        }
-//        
-//    }
+
+    Usuario usuario = new Usuario();
+    ResponsavelDAO responsavelDAO = new ResponsavelDAO();
+
+    public void novaSenha() throws BusinessException {
+        try {
+            responsavelDAO.setSenha(usuario);
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            "Sucesso!", "Senha alterada!"));
+        } catch (BusinessException ex) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Erro",
+                            ex.getMessage()));
+        }
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public ResponsavelDAO getResponsavelDAO() {
+        return responsavelDAO;
+    }
+
+    public void setResponsavelDAO(ResponsavelDAO responsavelDAO) {
+        this.responsavelDAO = responsavelDAO;
+    }
+
 }

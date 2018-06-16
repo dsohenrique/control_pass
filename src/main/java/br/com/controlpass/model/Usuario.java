@@ -31,7 +31,7 @@ public class Usuario implements java.io.Serializable {
     private String email;
     
     @Column(name = "status")
-    private int status;
+    private String status;
     
     @Column(name = "login")
     private String login;
@@ -42,6 +42,7 @@ public class Usuario implements java.io.Serializable {
     public int getIdUsuario() {
         return idUsuario;
     }
+    private String id;
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
@@ -81,14 +82,15 @@ public class Usuario implements java.io.Serializable {
         this.email = email;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
-
+    
+    
     public String getLogin() {
         return login;
     }
@@ -114,7 +116,13 @@ public class Usuario implements java.io.Serializable {
     }
 
     public String getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
     
 }

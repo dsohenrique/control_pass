@@ -34,6 +34,7 @@ and open the template in the editor.
                 <p:inputText id="txtCpf" label="rm" required="true" value="#{usuario.rm}"/>
                 <p:commandButton value="Consulta" actionListener="#{responsavelDAO.getPresencas(usuario)}" update="@form frmConsulta"/>
                 <p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
+                <p:button value="Nova senha" outcome="novaSenha"/>
             </p:fieldset>
             <p:dataTable value="#{responsavelDAO.presenca}" var="chamada">
                 <p:column headerText="RM">

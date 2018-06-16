@@ -85,13 +85,6 @@
                     </p:selectOneMenu>
                     <p:outputLabel value="Login" />
                     <p:inputText id="txtLogin" value="#{usuarioMB.usuario.login}"/>
-
-                    <p:outputLabel value="senha" />
-                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" id="txtSenha" value="#{usuarioMB.usuario.senha}" />
-
-                    <!--<p:outputLabel value=" confirme senha" />
-                    <p:password feedback="true" weakLabel="Fraco" goodLabel="Médio" strongLabel="Forte" />-->
-
                 </h:panelGrid>
                 <h:panelGrid columns="3">
                     <p:commandButton action="#{usuarioMB.cadastro()}"
@@ -103,7 +96,8 @@
                     <p:button value="Voltar" outcome="index"/>
                 </h:panelGrid>
                 <h:outputText value="#{usuarioMB.usuario.setTipoUsuario('2')}"/>
-                <h:outputText value="#{usuarioMB.usuario.setStatus(1)}"/>
+                <h:outputText value="#{usuarioMB.usuario.setStatus('1')}"/>
+                <h:outputText value="#{usuarioMB.usuario.setSenha('controlpass')}"/>
                 <p:ajaxStatus onstart="PF('dgLoader').show()" onsuccess="PF('dgLoader').hide()" />
                 <p:dialog widgetVar="dgLoader" modal="true" resizable="false" showHeader="false">
 

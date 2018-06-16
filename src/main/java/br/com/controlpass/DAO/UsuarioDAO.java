@@ -25,7 +25,7 @@ public void adiciona(Usuario usuario) throws BusinessException {
             stmt.setString(3, usuario.getNome());
             stmt.setString(4, usuario.getTipoUsuario());
             stmt.setString(5, usuario.getEmail());
-            stmt.setInt(6, usuario.getStatus());
+            stmt.setString(6, usuario.getStatus());
             stmt.setString(7, usuario.getLogin());
             stmt.setString(8, ShaEncoder.encode(usuario.getSenha()));
 
@@ -42,22 +42,32 @@ public void adiciona(Usuario usuario) throws BusinessException {
         }
 
     }
-public void inativa(Usuario usuario) throws BusinessException {
+public void altera(Usuario usuario) throws BusinessException {
 
         PreparedStatement stmt = null;
 
-        String sql = "UPDATE tbl_usuario SET status = 2 WHERE cpf = ?";
+        String sql = "INSERT INTO tbl_usuario(rm, cpf, nome,tipo_usuario, email, status, login, senha) VALUES(?,?,?,?,?,?,?,?)";
 
         try {
             Connection con = getConnection();
 
             stmt = con.prepareStatement(sql);
 
-            stmt.setString(1, usuario.getCpf());
+            stmt.setInt(1,usuario.getRm());
+            stmt.setString(2, usuario.getCpf());
+            stmt.setString(3, usuario.getNome());
+            stmt.setString(4, usuario.getTipoUsuario());
+            stmt.setString(5, usuario.getEmail());
+            stmt.setString(6, usuario.getStatus());
+            stmt.setString(7, usuario.getLogin());
+            stmt.setString(8, ShaEncoder.encode(usuario.getSenha()));
 
             stmt.execute();
 
         } catch (SQLException u) {
+//            if(u.getErrorCode() == 1){
+//                throw new BusinessException("Usuario ja cadastrado");
+//            }
             throw new RuntimeException(u);
         } finally {
             closeStatement(stmt);
@@ -85,7 +95,7 @@ public void inativa(Usuario usuario) throws BusinessException {
                 usuarioEncontrado.setNome(rs.getString("nome"));
                 usuarioEncontrado.setTipoUsuario(rs.getString("tipo_usuario"));
                 usuarioEncontrado.setEmail(rs.getString("email"));
-                usuarioEncontrado.setStatus(rs.getInt("status"));
+                usuarioEncontrado.setStatus(rs.getString("status"));
                 usuarioEncontrado.setLogin(rs.getString("login"));
                 usuarioEncontrado.setSenha(rs.getString("senha"));
 

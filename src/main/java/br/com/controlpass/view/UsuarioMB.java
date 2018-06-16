@@ -19,7 +19,7 @@ import org.primefaces.event.RowEditEvent;
 
 @ManagedBean
 @ViewScoped
-public class UsuarioMB{
+public class UsuarioMB {
 
     UsuarioDAO usuarioDAO = new UsuarioDAO();
 
@@ -41,15 +41,17 @@ public class UsuarioMB{
                             ex.getMessage()));
         }
     }
-    public void inativa() {
 
+    public List<Usuario> listaUsuario = new ArrayList<>();
+
+    public void listar() throws BusinessException {
+        listaUsuario.add(usuario);
+    }
+
+    public void onRowEdit(){
         try {
-            usuarioDAO.inativa(usuario);
-
-            FacesContext.getCurrentInstance().addMessage(
-                    null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-                            "Sucesso!", "Usuário inativado!"));
-
+            usuarioDAO.altera(usuario);
+            
         } catch (BusinessException ex) {
             FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -57,29 +59,20 @@ public class UsuarioMB{
                             ex.getMessage()));
         }
     }
-    
-    public  List<Usuario> listaUsuario = new ArrayList<>();
-    public void listar() throws BusinessException {
-        listaUsuario.add(usuario);
-    } 
-     public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Usuario editado", ((Usuario) event.getObject()).getId());
+
+    public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edição cancelada");
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-     public void onRowCancel(RowEditEvent event){
-        FacesMessage msg = new FacesMessage("Edição cancelada", ((Usuario) event.getObject()).getId());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-     public void onCellEdit(CellEditEvent event) {
+    public void onCellEdit(CellEditEvent event) {
         Object oldValue = event.getOldValue();
         Object newValue = event.getNewValue();
-         
+
         if(newValue != null && !newValue.equals(oldValue)) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Coluna alterada", "Antiga: " + oldValue + ", Nova:" + newValue);
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
-     
-     }
+    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -104,5 +97,5 @@ public class UsuarioMB{
     public void setListaUsuario(List<Usuario> listaUsuario) {
         this.listaUsuario = listaUsuario;
     }
-    
+
 }

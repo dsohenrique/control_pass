@@ -32,14 +32,14 @@
             <p:growl id="msgs" showDetail="true"/>
             <p:fieldset>
                 <p:dataTable value="#{administradorDAO.usuarios}" var="usuario" editable="true" >
-                    <p:ajax event="rowEdit" listener="#{usuarioMB.onRowEdit}" update=":form:msgs" />
+                    <f:facet name="header">
+                        Usuarios
+                    </f:facet>
+                    <p:ajax event="rowEdit" listener="#{usuarioMB.onRowEdit()}" update=":form:msgs" />
                     <p:ajax event="rowEditCancel" listener="#{usuarioMB.onRowCancel}" update=":form:msgs" />
 
                     <p:column headerText="CPF">
-                        <p:cellEditor>
-                            <f:facet name="output"><h:outputText value="#{usuario.cpf}" /></f:facet>
-                            <f:facet name="input"><p:inputText id="modelInput" value="#{usuario.cpf}" style="width:100%"/></f:facet>
-                        </p:cellEditor>
+                        <h:outputText value="#{usuario.cpf}" />
                     </p:column>
 
                     <p:column headerText="RM do Aluno">
@@ -47,7 +47,10 @@
                     </p:column>
 
                     <p:column headerText="Nome">
-                        <h:outputText value="#{usuario.nome}" />
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{usuario.nome}" /></f:facet>
+                            <f:facet name="input"><p:inputText id="modelInput" value="#{usuario.nome}" style="width:100%"/></f:facet>
+                        </p:cellEditor>
                     </p:column>
 
                     <p:column headerText="Tipo de usuario">
@@ -61,7 +64,7 @@
                     <p:column headerText="Status">
                         <h:outputText value="#{usuario.status}" />
                     </p:column>
-                    <p:column style="width:32px">
+                    <p:column style="width:50px">
                         <p:rowEditor />
                     </p:column>
 
