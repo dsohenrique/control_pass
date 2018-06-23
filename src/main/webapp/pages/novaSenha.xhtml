@@ -14,7 +14,7 @@
     <h:body>    
         <h1>ControlPass V1.0</h1>        
         <p:fieldset>
-            <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
+            <p:growl id="msgs" showDetail="true" life="500" sticky="true" />
 
             <h:form id="form">
                 <h:panelGrid columns="4" columnClasses="coluna1, coluna2"
@@ -32,7 +32,7 @@
                     </h:panelGrid>
 
                     <p:commandButton value="Salvar" action="#{usuarioMB.novaSenha()}" update=":msgs form" />
-                    <p:commandButton action="#{loginMB.logout()}" value="Deslogar"/>
+                    <p:button value="Voltar"  outcome="layout" />
                 </h:panelGrid>
             </h:form>
         </p:fieldset>
