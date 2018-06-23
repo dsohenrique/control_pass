@@ -8,10 +8,8 @@ import br.com.controlpass.model.Chamada;
 import br.com.controlpass.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.CellEditEvent;
@@ -24,6 +22,20 @@ public class UsuarioMB {
     UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     private Usuario usuario = new Usuario();
+    
+    public void novaSenha() throws BusinessException {
+        try {
+            usuarioDAO.verificaSenha(usuario);
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            "Sucesso!", "Senha alterada!"));
+        } catch (BusinessException ex) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Erro",
+                            ex.getMessage()));
+        }
+    }
 
     public void cadastro() {
 

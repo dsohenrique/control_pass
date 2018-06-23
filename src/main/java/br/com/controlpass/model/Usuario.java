@@ -38,7 +38,16 @@ public class Usuario implements java.io.Serializable {
     
     @Column(name = "senha")
     private String senha;
+    
+    private String novaSenha;
 
+    public String getNovaSenha() {
+        return novaSenha;
+    }
+
+    public void setNovaSenha(String novaSenha) {
+        this.novaSenha = novaSenha;
+    }
     public int getIdUsuario() {
         return idUsuario;
     }

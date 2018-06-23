@@ -1,6 +1,7 @@
 package br.com.controlpass.view;
 
 import br.com.controlpass.DAO.ResponsavelDAO;
+import br.com.controlpass.DAO.UsuarioDAO;
 import br.com.controlpass.exception.BusinessException;
 import br.com.controlpass.model.Usuario;
 import javax.faces.application.FacesMessage;
@@ -14,10 +15,11 @@ public class ResponsavelMB {
 
     Usuario usuario = new Usuario();
     ResponsavelDAO responsavelDAO = new ResponsavelDAO();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     public void novaSenha() throws BusinessException {
         try {
-            responsavelDAO.setSenha(usuario);
+            usuarioDAO.verificaSenha(usuario);
             FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage(FacesMessage.SEVERITY_INFO,
                             "Sucesso!", "Senha alterada!"));

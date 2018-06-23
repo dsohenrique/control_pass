@@ -31,7 +31,7 @@ public class LoginMB {
                     .getCurrentInstance().getExternalContext().getSession(true);
             
             session.setAttribute("usuario", usuario);
-            
+                       
             return "layout";
         } catch (BusinessException ex) {
             FacesContext.getCurrentInstance().addMessage(
