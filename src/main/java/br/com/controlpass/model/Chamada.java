@@ -31,7 +31,12 @@ public class Chamada {
     @Column(name = "data")
     @Temporal(TemporalType.DATE)
     private Date data;
-
+    
+    
+    private String nome_materia;
+    
+    private String nome_curso;
+    
     @Column(name = "hora_inicio")
     @Temporal(TemporalType.TIME)
     private String hora_inicio;
@@ -52,20 +57,38 @@ public class Chamada {
 
     @Column(name = "nome")
     private String nome;
-    /*@ManyToOne
-	@JoinColumn(name="tipo_usuario")
-	private Usuario professor = new Usuario();*/
     
+    @Column(name = "situacao")
+    private String situacao;
 
-    /*@ManyToOne
-	@JoinColumn(name="id_usuario")
-	private Usuario usuario = new Usuario();*/
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+    
+    
+    
     public int getId_chamada() {
         return id_chamada;
     }
 
     public void setId_chamada(int id_chamada) {
         this.id_chamada = id_chamada;
+    }
+
+    public String getNome_materia() {
+        return nome_materia;
+    }
+
+    public void setNome_materia(String nome_materia) {
+        this.nome_materia = nome_materia;
+    }
+
+    public String getNome_curso() {
+        return nome_curso;
     }
 
 //    public Curso getCurso() {
@@ -75,6 +98,9 @@ public class Chamada {
 //    public void setCurso(Curso curso) {
 //        this.curso = curso;
 //    }
+    public void setNome_curso(String nome_curso) {
+        this.nome_curso = nome_curso;
+    }
 
     public Turma getTurma() {
         return turma;

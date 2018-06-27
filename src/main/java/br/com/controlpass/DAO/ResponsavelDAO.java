@@ -20,7 +20,9 @@ public class ResponsavelDAO extends AbstractDAO {
     public List<Chamada> getPresencas(Usuario usuario) throws BusinessException {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "SELECT c.rm_fk, c.nome_aluno, data FROM tbl_chamada c INNER JOIN tbl_usuario u ON c.rm_fk = u.rm AND u.cpf = ?";
+        String sql = "SELECT c.rm_fk, a.nome_aluno,c.situacao, data, m.nm_materia,s.nm_curso  FROM tbl_chamada c INNER JOIN tbl_usuario u ON c.rm_fk = u.rm AND u.cpf = ? INNER JOIN tbl_materia m ON c.id_materia_fk = m.id_materia \n" +
+"INNER JOIN tbl_curso s ON c.id_curso_fk = s.id_curso\n" +
+"INNER JOIN tbl_aluno a ON c.rm_fk = a.rm";
         try {
             Connection con = getConnection();
             stmt = con.prepareStatement(sql);
@@ -30,6 +32,9 @@ public class ResponsavelDAO extends AbstractDAO {
                 Chamada chamada = new Chamada();
                 chamada.setRm(rs.getInt("rm_fk"));
                 chamada.setNome(rs.getString("nome_aluno"));
+                chamada.setNome_materia(rs.getString("nm_materia"));
+                chamada.setNome_curso(rs.getString("nm_curso"));
+                chamada.setSituacao(rs.getString("situacao"));
                 chamada.setData(rs.getDate("data"));
                 presenca.add(chamada);
             }
