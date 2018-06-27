@@ -52,6 +52,7 @@ public class AutenticacaoPhaseListener implements PhaseListener{
     }
     
     public boolean temPermissao(String pagina, Usuario usuario){
+        
         return true; // TODO: implementar
     }
 
