@@ -7,24 +7,30 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
-        <title>Administrador</title>
-        <h:outputStylesheet library="css" name="style.css" />
+        <title>Control Pass</title>
     </h:head>
     <h:body>
 
-        
+<style>
+body {
+	background-color: #98FB98;
+}
+
+h1 {
+	text-align: center !important;
+}
+
+</style>
 
         <p:growl id="msgs" showDetail="false" autoUpdate="true" sticky="true"
                  life="7500" />
 
-        <h2>Administrador V1.0</h2>
+        <h1>Administrador</h1>
 
         <h:panelGrid
             columnClasses="PanelGrid1"
             columns="1" cellpadding="4" cellspacing="4" width="100%" border="0"
             style="text-align:left;">
-            <h:graphicImage library="images" name="face.png" width="200" height="200" />
-            <h:outputLabel value="Randy Marsh" />
             <p:button value="Voltar" outcome="layout" icon="ui-icon-close" />
             <p:commandButton action="#{loginMB.logout()}" value="Deslogar"/>
             <p:button value="Nova senha" outcome="novaSenha"/>

@@ -9,12 +9,22 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <title>ControlPass</title>
+        <title>Control Pass</title>
     </h:head>
     <h:body>    
 
+<style>
+body {
+	background-color: #98FB98;
+}
+
+h1 {
+	text-align: center !important;
+}
+
+</style>
       
-        <h1>ControlPass V1.0</h1>        
+        <h1>Cadastro Usuario</h1>        
         <p:fieldset>
             <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
 
@@ -44,14 +54,6 @@
 
                     </p:inputText>
 
-
-                    <h:outputText value="UF:" />
-                    <h:outputText value="SP" styleClass="negrito" />
-
-                    <h:outputText value="Unidade" />
-                    <p:selectOneMenu>
-                        <f:selectItem itemLabel="064"  />
-                    </p:selectOneMenu>
                     <p:outputLabel value="Login" />
                     <p:inputText id="txtLogin" value="#{usuarioMB.usuario.login}"/>
 
@@ -73,11 +75,6 @@
 
                     <p:button value="Voltar" outcome="index"/>
                 </h:panelGrid>
-                <p:ajaxStatus onstart="PF('dgLoader').show()" onsuccess="PF('dgLoader').hide()" />
-                <p:dialog widgetVar="dgLoader" modal="true" resizable="false" showHeader="false">
-
-                    <p:graphicImage name="spin.gif" library="images" />
-                </p:dialog>
             </h:form>
         </p:fieldset>
     </h:body>

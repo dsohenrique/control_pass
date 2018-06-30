@@ -1,40 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:stella="http://stella.caelum.com.br/faces2">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:stella="http://stella.caelum.com.br/faces2">
 
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <title>ControlPass</title>
-    </h:head>
-    <h:body>    
-        <h1>ControlPass V1.0</h1>        
-        <p:fieldset>
-            <p:growl id="msgs" showDetail="true" life="500" sticky="true" />
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<title>ControlPass</title>
+</h:head>
+<h:body>
 
-            <h:form id="form">
-                <h:panelGrid columns="4" columnClasses="coluna1, coluna2"
-                             cellpadding="2" cellspacing="2" width="100%">
-                    <h:panelGrid columns="2" id="matchGrid" cellpadding="5"> 
-                        <p:outputLabel>Seu login: </p:outputLabel>
-                        <p:inputText id="txtLogin" value="#{usuarioMB.usuario.login}"/>
-                        <h:outputText value="Senha atual:" />
-                        <p:password id="pwd3" value="#{usuarioMB.usuario.senha}" required="true" />
-                        <h:outputLabel for="pwd1" value="Nova Senha: " />
-                        <p:password id="pwd1" value="#{usuarioMB.usuario.novaSenha}" match="pwd2" label="Password 1" required="true" />
+	<style>
+body {
+	background-color: #98FB98;
+}
 
-                        <h:outputLabel for="pwd2" value="Confirme a senha: " />
-                        <p:password id="pwd2" value="#{usuarioMB.usuario.novaSenha}" label="Password 2" required="true" />
-                    </h:panelGrid>
+h1 {
+	text-align: center !important;
+}
 
-                    <p:commandButton value="Salvar" action="#{usuarioMB.novaSenha()}" update=":msgs form" />
-                    <p:button value="Voltar"  outcome="layout" />
-                </h:panelGrid>
-            </h:form>
-        </p:fieldset>
-    </h:body>
+h2 {
+	text-align: center !important;
+}
+</style>
+
+	<h1>ControlPass V1.0</h1>
+	<p:fieldset>
+		<p:growl id="msgs" showDetail="true" life="500" sticky="true" />
+
+		<h:form id="form">
+			<h:panelGrid columns="4" columnClasses="coluna1, coluna2"
+				cellpadding="2" cellspacing="2" width="100%">
+				<h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+					<p:outputLabel>Seu login: </p:outputLabel>
+					<p:inputText id="txtLogin" value="#{usuarioMB.usuario.login}" />
+					<h:outputText value="Senha atual:" />
+					<p:password id="pwd3" value="#{usuarioMB.usuario.senha}"
+						required="true" />
+					<h:outputLabel for="pwd1" value="Nova Senha: " />
+					<p:password id="pwd1" value="#{usuarioMB.usuario.novaSenha}"
+						match="pwd2" label="Password 1" required="true" />
+
+					<h:outputLabel for="pwd2" value="Confirme a senha: " />
+					<p:password id="pwd2" value="#{usuarioMB.usuario.novaSenha}"
+						label="Password 2" required="true" />
+				</h:panelGrid>
+
+				<p:commandButton value="Salvar" action="#{usuarioMB.novaSenha()}"
+					update=":msgs form" />
+				<p:button value="Voltar" outcome="layout" />
+			</h:panelGrid>
+		</h:form>
+	</p:fieldset>
+</h:body>
 </html>

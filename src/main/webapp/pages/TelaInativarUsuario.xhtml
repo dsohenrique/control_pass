@@ -6,24 +6,30 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-        <title>Adm - Inativar Usuario</title>
-        <h:outputStylesheet library="css" name="style.css" />
+        <title>Control Pass</title>
     </h:head>
     <h:body>
 
-        
+<style>
+body {
+	background-color: #98FB98;
+}
+
+h1 {
+	text-align: center !important;
+}
+
+</style>
 
         <p:growl id="msgs" showDetail="false" autoUpdate="true" sticky="false"
                  life="7500" />
 
-        <h2>Inativar Usuario V1.0</h2>
+        <h1>Inativar Usuario</h1>
 
         <h:panelGrid
             columnClasses="PanelGrid1"
             columns="1" cellpadding="4" cellspacing="4" width="100%" border="0"
             style="text-align:left;">
-            <h:graphicImage library="images" name="face2.png" width="200" height="200" />
-            <h:outputLabel value="Kyle Broflovski" />
             <p:commandButton value="Sair" icon="ui-icon-close" />
         </h:panelGrid>
 
