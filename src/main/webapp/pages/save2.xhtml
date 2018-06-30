@@ -52,8 +52,10 @@ h1 {
                                  maxlength="50" label="E-Mail" validatorMessage=" e-mail invalido" id="txtEmail">
                         <f:validateRegex
                             pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]">
-                                
+
                         </f:validateRegex>
+
+                    </p:inputText>
 
                     <p:outputLabel value="Login" />
                     <p:inputText id="txtLogin" value="#{usuarioMB.usuario.login}"/>
