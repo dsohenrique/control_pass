@@ -31,7 +31,7 @@ and open the template in the editor.
         <h:form id="frmConsulta">
             <h:panelGrid columns="4">
                 <p:fieldset style="width:500px; margin-left: 35%">
-                    <h:outputText value="CPF:" />
+                    <h:outputText value="Olá digite aqui seu CPF:" />
                     <p:inputMask value="#{usuario.cpf}" mask="999.999.999-99"
                                  style="width:140px;" label="Digite seu CPF aqui:" required="true"
                                  converter="cpfConverter" validator="StellaCPFValidator" id="txtCpf" />
@@ -40,25 +40,28 @@ and open the template in the editor.
                     <p:button value="Nova senha" outcome="novaSenha"/>
                 </p:fieldset>
             </h:panelGrid>
-            <p:dataTable value="#{responsavelDAO.presenca}" var="chamada">
-                <p:column headerText="RM">
+            <p:dataTable var="chamada" value="#{responsavelDAO.presenca}" widgetVar="tabelaChamada" 
+                         emptyMessage="Dado não encontrados X.X">
+                
+                <p:column sortBy="#{chamada.rm}" headerText="RM"  >
                     <h:outputText value="#{chamada.rm}" />
                 </p:column>
-                <p:column headerText="Nome">
+                <p:column sortBy="#{chamada.nome}" headerText="Nome" >
                     <h:outputText value="#{chamada.nome}" />
                 </p:column>
-                <p:column filterBy="#{chamada.nome_curso}" headerText="Curso" filterMatchMode="exact">                    
+                <p:column sortBy="#{chamada.nome_curso}" headerText="Curso"  >                    
                     <h:outputText value="#{chamada.nome_curso}" />
                 </p:column>
-                <p:column filterBy="#{chamada.nome_materia}" headerText="Materia" filterMatchMode="exact">
+                <p:column sortBy="#{chamada.nome_materia}" headerText="Materia"  >
                     <h:outputText value="#{chamada.nome_materia}" />
                 </p:column>
-                    <p:column filterBy="#{chamada.data}" headerText="Data">
-                        <h:outputText value="#{chamada.data}"/>
-                    </p:column>
-                <p:column filterBy="#{chamada.situacao}" headerText="Situação">
+                <p:column sortBy="#{chamada.data}" headerText="Data"  >
+                    <h:outputText value="#{chamada.data}" />
+                </p:column>
+                <p:column sortBy="#{chamada.situacao}" headerText="Situação" >
                     <h:outputText value="#{chamada.situacao}" />
                 </p:column>
+                
             </p:dataTable>
         </h:form>
     </h:body>

@@ -16,6 +16,7 @@ import javax.faces.bean.ManagedBean;
 public class ResponsavelDAO extends AbstractDAO {
 
     public List<Chamada> presenca = new ArrayList<>();
+    private List<Chamada> chamadaFiltrada = new ArrayList<>();
 
     public List<Chamada> getPresencas(Usuario usuario) throws BusinessException {
         PreparedStatement stmt = null;
@@ -79,4 +80,12 @@ public class ResponsavelDAO extends AbstractDAO {
         return presenca;
     }
 
-}
+    public List<Chamada> getChamadaFiltrada() {
+        return chamadaFiltrada;
+    }
+
+    public void setChamadaFiltrada(List<Chamada> chamadaFiltrada) {
+        this.chamadaFiltrada = chamadaFiltrada;
+    }
+    
+    }

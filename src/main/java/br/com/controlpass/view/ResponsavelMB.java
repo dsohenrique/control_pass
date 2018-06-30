@@ -3,7 +3,9 @@ package br.com.controlpass.view;
 import br.com.controlpass.DAO.ResponsavelDAO;
 import br.com.controlpass.DAO.UsuarioDAO;
 import br.com.controlpass.exception.BusinessException;
+import br.com.controlpass.model.Chamada;
 import br.com.controlpass.model.Usuario;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -16,7 +18,8 @@ public class ResponsavelMB {
     Usuario usuario = new Usuario();
     ResponsavelDAO responsavelDAO = new ResponsavelDAO();
     UsuarioDAO usuarioDAO = new UsuarioDAO();
-
+    
+     
     public void novaSenha() throws BusinessException {
         try {
             usuarioDAO.verificaSenha(usuario);
@@ -45,6 +48,14 @@ public class ResponsavelMB {
 
     public void setResponsavelDAO(ResponsavelDAO responsavelDAO) {
         this.responsavelDAO = responsavelDAO;
+    }
+
+    public UsuarioDAO getUsuarioDAO() {
+        return usuarioDAO;
+    }
+
+    public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+        this.usuarioDAO = usuarioDAO;
     }
 
 }
