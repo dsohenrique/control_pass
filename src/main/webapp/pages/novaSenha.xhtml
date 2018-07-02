@@ -51,7 +51,7 @@ h2 {
 
 				<p:commandButton value="Salvar" action="#{usuarioMB.novaSenha()}"
 					update=":msgs form" />
-				<p:button value="Voltar" outcome="layout" />
+				<p:commandButton value="Deslogar" action="#{loginMB.logout()}"/>
 			</h:panelGrid>
 		</h:form>
 	</p:fieldset>

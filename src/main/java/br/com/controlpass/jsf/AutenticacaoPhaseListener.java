@@ -1,5 +1,6 @@
 package br.com.controlpass.jsf;
 
+import br.com.controlpass.enums.TipoUsuarioENUM;
 import br.com.controlpass.model.Usuario;
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
@@ -10,7 +11,11 @@ import javax.servlet.http.HttpSession;
 
 public class AutenticacaoPhaseListener implements PhaseListener{
     
-    private static final String[] safePages = {"Inicial","error","accessoNegado"};//TODO: Acesso negado
+    
+    private static final String[] administradorPages = {"index", "save", "save2", "TelaValidarUsuario", "recuperar", "TelaInativarUsuario"};
+    private static final String[] responsavelPages = {"inicialResponsavel"};
+    
+    private static final String[] safePages = {"Inicial","error","acessoNegado", "novaSenha"};
     
     @Override
     public void afterPhase(PhaseEvent event) {
@@ -45,15 +50,29 @@ public class AutenticacaoPhaseListener implements PhaseListener{
                     
                     NavigationHandler navigationHandler = facesContext
                             .getApplication().getNavigationHandler();
-                    navigationHandler.handleNavigation(facesContext, null, "accessoNegado");
+                    navigationHandler.handleNavigation(facesContext, null, "acessoNegado");
                 }
             }
         }
     }
     
-    public boolean temPermissao(String pagina, Usuario usuario){
+    public boolean temPermissao(String pagina, Usuario usuario){      
         
-        return true; // TODO: implementar
+        if (usuario.getTipoUsuario().equals(TipoUsuarioENUM.ADMINISTRADOR.toString())) {
+            for(String paginaAcesso : administradorPages){
+                if(pagina.equals(paginaAcesso)){
+                    return true;
+                }
+            }
+        }
+        else if (usuario.getTipoUsuario().equals(TipoUsuarioENUM.RESPONSAVEL.toString())) {
+            for(String paginaAcesso : responsavelPages){
+                if(pagina.equals(paginaAcesso)){
+                    return true;
+                }
+            }
+        } 
+        return false;
     }
 
     @Override

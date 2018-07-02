@@ -1,6 +1,7 @@
 package br.com.controlpass.view;
 
 import br.com.controlpass.DAO.UsuarioDAO;
+import br.com.controlpass.enums.TipoUsuarioENUM;
 import br.com.controlpass.exception.BusinessException;
 import br.com.controlpass.model.Usuario;
 import javax.faces.application.FacesMessage;
@@ -30,9 +31,10 @@ public class LoginMB {
             HttpSession session = (HttpSession) FacesContext
                     .getCurrentInstance().getExternalContext().getSession(true);
             
-            session.setAttribute("usuario", usuario);
+            session.setAttribute("usuario", usuarioLogado);
                        
-            return "layout";
+            return (usuarioLogado.getTipoUsuario().equals(TipoUsuarioENUM.ADMINISTRADOR.toString())) 
+                    ? "index" : "inicialResponsavel";
         } catch (BusinessException ex) {
             FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
