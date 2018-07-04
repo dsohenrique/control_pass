@@ -13,11 +13,41 @@
 
 <style>
 body {
-	background-color: #98FB98;
+	
+	background-color: #3b1a77;
+	font-family: Arial, sans-serif;
+	
 }
 
 h1 {
 	text-align: center !important;
+	font-size: 25px;
+	color: white;
+	margin-right:50%;
+}
+
+h2 {
+	text-align: center !important;
+	font-size: 20px;
+	color: white;
+	
+}
+
+ .ui-button-text{
+ 	background-color: #6f42c1;
+ 	border: none;
+ 	border-style: none;
+ 	color:white;
+ 	font-size: 20px;
+ 	font-family: Arial, sans-serif; }
+ 
+ .ui-button-text: active {
+	box-shadow: 0px 2px 2px #6f42c1, 0px -2px 2px #6f42c1;
+}
+
+.ui-growl{
+	background-color: red;
+	color: white;
 }
 
 </style>
@@ -25,21 +55,22 @@ h1 {
         <p:growl id="msgs" showDetail="false" autoUpdate="true" sticky="true"
                  life="7500" />
 
-        <h1>Administrador</h1>
+        
 
         <h:panelGrid
             columnClasses="PanelGrid1"
-            columns="1" cellpadding="4" cellspacing="4" width="100%" border="0"
+            columns="3" cellpadding="4" cellspacing="4" width="100%" border="0"
             style="text-align:left;">
-            <p:commandButton action="#{loginMB.logout()}" value="Deslogar"/>
-            <p:button value="Nova senha" outcome="novaSenha"/>
+            <h1>Administrador</h1>
+            <p:commandButton style="margin-left: 180%;" action="#{loginMB.logout()}" value="Deslogar"/>
+            <p:button style="margin-left: 85%;" value="Nova senha" outcome="novaSenha"/>
         </h:panelGrid>
 
-        <h:form id="form">
+        <h:form id="form" style="border: solid 1px white; margin-top:10%;">
             <p:tab id="gerenciar" title="Gerenciar">
 
                 <h:panelGrid columns="1" columnClasses="botoesGerenciar">
-                    <p:panel header="Gerenciar">
+                    <p:panel header="Gerenciar" style="font-size: 25px; color: white;">
                         <p:toolbar>  
                             <p:toolbarGroup align="center">  
                                 <p:commandButton value="Usuarios Ativos" action="TelaValidarUsuario.xhtml" /> 

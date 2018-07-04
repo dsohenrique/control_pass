@@ -13,11 +13,14 @@
     
 <style>
 body {
-	background-color: #98FB98;
+		background-color: #3b1a77;
+	font-family: Arial, sans-serif;
 }
 
 h1 {
 	text-align: center !important;
+	font-size: 25px;
+	color: white;
 }
 
 </style>
@@ -37,10 +40,10 @@ h1 {
             <p:button value="Voltar" outcome="index" icon="ui-icon-close" />
         </h:panelGrid>
 
-        <h:form id="form">
+        <h:form id="form" style="background-color: white; border: solid 1px #3b1a77; color: white;">
             <p:growl id="msgs" showDetail="true"/>
-            <p:fieldset>
-                <p:dataTable value="#{administradorDAO.usuarios}" var="usuario" editable="true" >
+            <p:fieldset style="background-color: white; border: solid 1px #3b1a77;">
+                <p:dataTable value="#{administradorDAO.usuarios}" var="usuario" editable="true" style="background-color: white; border: solid 1px #3b1a77;">
                     <f:facet name="header">
                         Usuarios
                     </f:facet>

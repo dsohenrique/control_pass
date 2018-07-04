@@ -12,35 +12,68 @@
     
 <style>
 body {
-	background-color: #98FB98;
+	
+	background-color: #3b1a77;
+	font-family: Arial, sans-serif;
+	
 }
 
 h1 {
 	text-align: center !important;
+	font-size: 25px;
+	color: white;
 }
 
 h2 {
 	text-align: center !important;
+	font-size: 20px;
+	color: white;
+	
 }
+
+ .ui-button-text{
+ 	background-color: #6f42c1;
+ 	border: none;
+ 	border-style: none;
+ 	color:white;
+ 	font-size: 15px;
+ 	font-family: Arial, sans-serif; }
+ 
+ .ui-button-text: active {
+	box-shadow: 0px 2px 2px #6f42c1, 0px -2px 2px #6f42c1;
+}
+
+.ui-growl{
+	background-color: red;
+	color: white;
+}
+
+
+
 </style>
     
-        <h:form style="text-align:center">
+        <h:form style="text-align:center; margin-top: 10%;">
             <h1>Control Pass</h1>
             <h2>Bem-Vindo(a)</h2><br/>
-            <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
-            <p:outputLabel value=" Insira seus dados de login!!!"/><br/><br/>
-            <p:fieldset style="width:500px; margin-left: 35%">
-                <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10">
-                    <p:outputLabel>LOGIN: </p:outputLabel>
-                    <p:inputText id="txtLogin" value="#{loginMB.usuario.login}"/>
+            <p:growl id="msgs" showDetail="true" life="7000" sticky="true"/>
+            <p:outputLabel style="color: white;" value=" Insira os dados para login."/><br/><br/>
+            
+            <p:fieldset style="background-color:white; width:15%; height: 20%; margin-left: 41.5%; color: #6f42c1; box-shadow: 0px 2px 2px #3b1a77, 0px -2px 2px #3b1a77;">
+                
+                <h:panelGrid columns="2" style="margin-bottom:10%; " cellpadding="10">
+                    <p:outputLabel style="color: 6f42c1; font-family: 'Arial Black';">Login: </p:outputLabel>
+                    <p:inputText  style="width: 110%; height:5%;box-shadow: 0px 1px 1px #6f42c1, 0px -1px 1px #6f42c1 !important;" id="txtLogin" value="#{loginMB.usuario.login}"/>
 
-                    <p:outputLabel>SENHA: </p:outputLabel>
-                    <h:inputSecret id="txtSenha" value="#{loginMB.usuario.senha}"/>
+                    <p:outputLabel  style="color: 6f42c1; font-family: 'Arial Black';">Senha: </p:outputLabel>
+                    <h:inputSecret  style="width: 110%; height: 25px;box-shadow: 0px 1px 1px #6f42c1, 0px -1px 1px #6f42c1 !important;" id="txtSenha" value="#{loginMB.usuario.senha}"/>
                 </h:panelGrid> 
-                <h:panelGrid columns="4" style="margin-left: 100px">
-                    <p:commandButton value="Entrar" action="#{loginMB.autenticar()}" update="@form"/>
+                
+                <h:panelGrid columns="4" style="margin-left: 4%">
+                    <p:commandButton styleCass="ui-button-text" value="Entrar" action="#{loginMB.autenticar()}" update="@form"/>
                 </h:panelGrid>
-            </p:fieldset>    
+                
+            </p:fieldset>
+                
         </h:form>
     </h:body>
 </html>
