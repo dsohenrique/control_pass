@@ -15,17 +15,17 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-	
-	<style>
-body {
-	background-color: #98FB98;
-}
 
-h1 {
-	text-align: center !important;
-}
+        <style>
+            body {
+                background-color: #98FB98;
+            }
 
-</style>
+            h1 {
+                text-align: center !important;
+            }
+
+        </style>
 
         <p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
         <h:form style="margin-left: 40%">
@@ -53,7 +53,7 @@ h1 {
             </h:panelGrid>
             <p:dataTable var="chamada" value="#{responsavelDAO.presenca}" widgetVar="tabelaChamada" 
                          emptyMessage="Dado não encontrados X.X">
-                
+
                 <p:column sortBy="#{chamada.rm}" headerText="RM"  >
                     <h:outputText value="#{chamada.rm}" />
                 </p:column>
@@ -67,12 +67,14 @@ h1 {
                     <h:outputText value="#{chamada.nome_materia}" />
                 </p:column>
                 <p:column sortBy="#{chamada.data}" headerText="Data"  >
-                    <h:outputText value="#{chamada.data}" />
+                    <h:outputText value="#{chamada.data}" >
+                        <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
+                    </h:outputText>
                 </p:column>
                 <p:column sortBy="#{chamada.situacao}" headerText="Situação" >
                     <h:outputText value="#{chamada.situacao}" />
                 </p:column>
-                
+
             </p:dataTable>
         </h:form>
     </h:body>

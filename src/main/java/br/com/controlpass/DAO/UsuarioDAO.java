@@ -68,6 +68,26 @@ public class UsuarioDAO extends AbstractDAO {
         }
         return usuario;
     }
+    public Usuario inativa(Usuario usuario) throws BusinessException {
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "UPDATE tbl_usuario SET status = 2 WHERE cpf = ?";
+        try {
+            Connection con = getConnection();
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, usuario.getCpf());            
+            stmt.executeUpdate();
+
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        } finally {
+            closeStatement(stmt);
+            closeResultSet(rs);
+            closeConnection();
+        }
+        return usuario;
+    }
 
     public void adiciona(Usuario usuario) throws BusinessException {
 

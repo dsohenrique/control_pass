@@ -53,6 +53,22 @@ public class UsuarioMB {
                             ex.getMessage()));
         }
     }
+    public void inativa() {
+
+        try {
+            usuarioDAO.inativa(usuario);
+
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            "Sucesso!", "Usuário Inativado!"));
+
+        } catch (BusinessException ex) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Erro",
+                            ex.getMessage()));
+        }
+    }
 
     public List<Usuario> listaUsuario = new ArrayList<>();
 
