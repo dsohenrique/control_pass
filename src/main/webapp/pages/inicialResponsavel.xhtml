@@ -53,19 +53,23 @@ h2 {
 }
 </style>
 
+	<h1 style="margin-right: 100%;">Responsável</h1>
+	<p:commandButton style="margin-left: 80%;" value="Deslogar" action="#{loginMB.logout()}" />
+	<p:button style="margin-left: 60%; margin-top: -2%;" value="Nova senha" outcome="novaSenha" />
 	<p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
 	<h:form style="margin-left: 40%">
 		<p:growl id="msgs" showDetail="true" life="7000" sticky="true" />
-		<h:panelGrid columns="2">
-			<h1>Control Pass V1.0</h1>
-			<h2>Responsável</h2>
+		<h:panelGrid columns="3">
+			
+			
 		</h:panelGrid>
 		<br />
-		<p:outputLabel style="color: white;" value="Para consultar, digite o CPF do aluno:" />
+		
 
 	</h:form>
-	<h:form id="frmConsulta" style="background-color: white; border: solid 1px #3b1a77; color: white;">
-		<h:panelGrid columns="4" style="background-color: white; border: solid 1px #3b1a77; color: white;">
+	<h2>Para consultar, digite o CPF do aluno: </h2>
+	<h:form id="frmConsulta">
+		<h:panelGrid columns="4" style="background-color: white; border: solid 1px #3b1a77; margin-top: 5%; color: white;">
 			<p:fieldset>
 				<h:outputText style="color: #3b1a77;" value="Olá digite aqui seu CPF:" />
 				<p:inputMask value="#{usuario.cpf}" mask="999.999.999-99"
@@ -74,12 +78,10 @@ h2 {
 				<p:commandButton value="Consulta"
 					actionListener="#{responsavelDAO.getPresencas(usuario)}"
 					update="@form frmConsulta" />
-				<p:commandButton value="Deslogar" action="#{loginMB.logout()}" />
-				<p:button value="Nova senha" outcome="novaSenha" />
 			</p:fieldset>
 		</h:panelGrid>
 		<p:dataTable var="chamada" value="#{responsavelDAO.presenca}"
-			widgetVar="tabelaChamada" emptyMessage="Dado não encontrados X.X" style="background-color: white; border: solid 1px #3b1a77; color: white;">
+			widgetVar="tabelaChamada" emptyMessage="Dado não encontrados X.X" style="background-color: white; border: solid 1px #3b1a77;  margin-top: 5%; color: white;">
 
 			<p:column sortBy="#{chamada.rm}" headerText="RM">
 				<h:outputText value="#{chamada.rm}" />
